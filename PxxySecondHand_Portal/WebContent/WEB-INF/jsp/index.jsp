@@ -137,120 +137,23 @@
 				        </span>
   				</div>
  				<ul class="parent_category">
-   			 	<li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" onmouseover="showCurrChildBox(this,1)" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
-  				  <li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" onmouseover="showCurrChildBox(this,2)" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
-  				  <li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
-  				  <li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
-  				  <li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
-  				  <li class="child_category ">
-				      <div class="item_box" >
-				        <b>  </b>
-				        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" target="_blank">
-				       	   闲置数码
-				        </a>
-				        <span class="main-link">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
-				      </div>
-  				  </li>
+  				 	<c:forEach items="${itemCats}" var="itemCat" begin="0" end="5" varStatus="status">
+  				 		 <li class="child_category ">
+						      <div class="item_box" >
+						        <b>  </b>
+						        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" onmouseover="showCurrChildBox(${status.index+1})"  target="_blank">
+						       	  ${itemCat.categoryname}
+						        </a>
+						        <span class="main-link">
+						          <c:forEach items="${itemCat.itemCat}" var="childItemCat" begin="0" end="2">
+						          	<a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
+						          	  ${childItemCat.categoryname}
+						          	</a>
+						          </c:forEach>
+						        </span>
+						      </div>
+  				 		 </li>
+  				 	</c:forEach>
 				</ul>
   			</div>
   				<!-- E = 分类体 -->
@@ -526,8 +429,8 @@
 	<!-- E=coptright -->
 	<script type="text/javascript">
     //悬浮显示当前分类的所有子分类框
-    function showCurrChildBox(this_,i){
-    	$(".curr_child_category_box").css("top",i == 1 ? 15 : 15+40*(i-1)+"px");
+    function showCurrChildBox(i){
+    	$(".curr_child_category_box").css("top",i == 1 ? 15 : 15+45*(i-1)+"px");
     }
 	</script>
 	<script type="text/javascript">

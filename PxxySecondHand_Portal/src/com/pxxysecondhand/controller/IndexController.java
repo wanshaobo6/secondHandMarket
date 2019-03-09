@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pxxysecondhand.pojo.ItemCat;
 import com.pxxysecondhand.pojo.User;
 import com.pxxysecondhand.service.ICommentService;
+import com.pxxysecondhand.service.IItemCatService;
 import com.pxxysecondhand.service.IItemService;
 import com.pxxysecondhand.service.IMessageService;
 import com.pxxysecondhand.service.ISearchService;
@@ -28,6 +30,9 @@ import com.pxxysecondhand.utils.JsonUtils;
 public class IndexController {
 	@Autowired
 	private IItemService itemService;
+	
+	@Autowired
+	private IItemCatService itemCatService;
 	
 	@Autowired
 	private IMessageService messageService;
@@ -56,7 +61,10 @@ public class IndexController {
 		 List<GuessItem> guessList = searchService.searchByUserHabit(request, response);
 		 mv.addObject("guessList",guessList);
 		 mv.addObject("messageList", JsonUtils.jsonToList(JsonUtils.objectToJson(result.getItemList()), WebDynamicMessage.class));
-		mv.setViewName("index");
+		 //查询所有的分类
+		 List<ItemCat> itemCats = itemCatService.queryAllCatgories();
+		 mv.addObject("itemCats" , itemCats);
+		 mv.setViewName("index");
 		return mv;
 	
 	}

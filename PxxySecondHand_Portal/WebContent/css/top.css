@@ -1,0 +1,88 @@
+@charset "UTF-8";
+a:hover{
+	text-decoration: none;
+}
+.head {
+	background: #F1F1F1 url('../image/head_bg.png') repeat-x;
+	width: 100%;
+	height: 31px;
+	position: fixed;
+	z-index: 999999;
+	left: 0;
+	font-size: 12px;
+}
+.head_m {
+	margin: auto;
+	width: 980px;
+	padding: 7px 0 0 0;
+	color: #666666;
+}
+.f_red {
+	color: red;
+}
+.f_quit_color {
+	color: #ad6d16;
+}
+.head_l li {
+	float: left;
+	margin: 0 10px 0 0;
+}
+.hpadding{
+	height: 31px;
+}
+.search{
+	height:100px;
+	width:980px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+.search_left{
+	height:100px;
+	width:180px;
+
+}
+.search_left_icon{
+	width: 180px;
+	height:100px;
+	display: inline-block;
+}
+.search_right{
+	margin: 22px 60px;
+}
+.search_right_head{
+	width:510px;
+	height:36px;
+	border: 3px solid #ff7200;
+	background-color: #ff7200;
+}
+
+.searchContent{
+	width:400px;
+	height:36px;
+	color:#999999;
+}
+.searchButton{
+	width:110px;
+	height:36px;
+	background-color: #ff7200;
+	color:white;
+	font-size: 17px;
+	font-weight:bold;
+	cursor: pointer;
+	position: relative;
+}
+.searchButton:hover{
+	background-color: #ff8040;
+}
+.search_wechat{
+}
+.search_wechat span{
+	display: block;
+	font-size: 10px;
+	color:#2F70F0;
+	margin-left: 5px;;
+}
+.search_wechat img{
+	width:60px;
+	height:60px;
+}

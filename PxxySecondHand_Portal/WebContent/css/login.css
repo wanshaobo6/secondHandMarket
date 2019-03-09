@@ -1,0 +1,112 @@
+body {
+	background-color: #f5f5f5;
+	}
+#background{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left:0px;
+  top:0px;
+  z-index: -1;
+}
+	
+.main{margin-left: 60%; margin-top: 8%;z-index: 99999;}
+.img{width: 400px; border:0px;}
+#background{opacity:0.5;}
+.login1{width: 440px; height: 370px; border: 1px solid #d1d1cf; float: left; background-color: #f4f4f4;}
+.login2{width:436px; height:366px; margin: 2px; background-color: #ffffff;}
+.loginTopDiv {padding: 30px; font-weight:bold; font-size: 18px;}
+#tab li {
+      float: left;
+      list-style: none;
+      width: 188px;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+ #tab1{
+    background-color: #c0c0c0;
+    }
+ #tab2{
+    background-color: transparent;
+    }
+    #container {
+      position: relative;
+    }
+   .formDiv2{
+      width: 400px;
+      height: 200px;
+      padding: 10px 30px;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      display:none;
+    }
+.loginTop {color: #696969; font-size: 20px; font-weight: 900;}
+.registBtn {
+	background: url('../image/login_sprites_20110808.png');
+	display: inline-block;
+	background-position: +4px -44px;
+	height: 24px;
+	width: 73px;	
+}
+.loginBtn:hover{
+	
+}
+.registBtn:HOVER {
+	background: url('../image/login_sprites_20110808.png');
+	display: inline-block;
+	background-position: -70px -44px;
+	height: 24px;
+	width: 73px;
+}
+
+table {margin-left: 30px;font-size: 10pt;color: #404040;}
+.input {width: 235px;height: 26px;border: 1px solid #d9d9d9;padding-top: 4px;padding-left: 8px;}
+.yzm {width: 90px;height: 26px;border: 1px solid #d9d9d9;vertical-align: middle; margin-right: 30px;padding-top: 4px;padding-left: 8px;}
+label.error {color:#cc3300;font-weight: 900;}
+#vCode {margin-right: 30px; vertical-align: middle;width: 70px;height: 26px;border: 1px solid #000;}
+.loginBtn {border: 0px; width: 92px; height: 27px;}
+#submitBtn{width: 240px; height: 40px;margin-top:30px;background-color: #ff8c00;cursor:pointer}
+#sendcode{width: 100px;height: 26px;background-color: #c0c0c0;}
+.registbtnspan{
+	margin-left: 50px;
+}
+.send_sms {
+    border: 1px #3083ff solid;
+    border-radius: 0 4px 4px 0px;
+    background-color: #3487ff;
+    box-shadow: 0 5px 8px 0 rgba(24,95,255,.1);
+    color: #fff;
+    text-align: center;
+    font-weight: lighter;
+    background-image: linear-gradient(0deg,#398bff,#3083ff);
+    float: right;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.sms_disabled {
+    border: 1px #F0F0F0 solid;
+    border-radius: 0 4px 4px 0px;
+    background-color: #F0F0F0;
+    box-shadow: 0 5px 8px 0 rgba(24,95,255,.1);
+    color: #D1CCCC;
+    text-align: center;
+    font-weight: lighter;
+    float: right;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+}
+.verifyCodeInput{
+	width: 145px;
+	height: 30px;
+	border: 1px solid #d9d9d9;
+}
+
+

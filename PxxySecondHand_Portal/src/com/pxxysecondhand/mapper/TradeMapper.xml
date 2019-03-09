@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pxxysecondhand.mapper.TradeMapper" >
+  <resultMap id="BaseResultMap" type="com.pxxysecondhand.pojo.Trade" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="buyerId" property="buyerid" jdbcType="VARCHAR" />
+    <result column="itemOwnerId" property="itemownerid" jdbcType="VARCHAR" />
+    <result column="tradeItemId" property="tradeitemid" jdbcType="VARCHAR" />
+    <result column="tradeItemTitle" property="tradeitemtitle" jdbcType="VARCHAR" />
+    <result column="tradeItemImage" property="tradeitemimage" jdbcType="VARCHAR" />
+    <result column="tradeCurrPrice" property="tradecurrprice" jdbcType="INTEGER" />
+    <result column="tradeType" property="tradetype" jdbcType="INTEGER" />
+    <result column="paymentType" property="paymenttype" jdbcType="INTEGER" />
+    <result column="tradeStatus" property="tradestatus" jdbcType="INTEGER" />
+    <result column="tradeEvaluateLevel" property="tradeevaluatelevel" jdbcType="INTEGER" />
+    <result column="buyerIsDeleted" property="buyerisdeleted" jdbcType="INTEGER" />
+    <result column="ownerIsDeleted" property="ownerisdeleted" jdbcType="INTEGER" />
+    <result column="tradeEvaluate" property="tradeevaluate" jdbcType="VARCHAR" />
+    <result column="tradeCreatedTime" property="tradecreatedtime" jdbcType="TIMESTAMP" />
+    <result column="tradeComplishTime" property="tradecomplishtime" jdbcType="TIMESTAMP" />
+    <result column="tradeCEvaluateTime" property="tradecevaluatetime" jdbcType="TIMESTAMP" />
+    <result column="tradeCancelTime" property="tradecanceltime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, buyerId, itemOwnerId, tradeItemId, tradeItemTitle, tradeItemImage, tradeCurrPrice, 
+    tradeType, paymentType, tradeStatus, tradeEvaluateLevel, buyerIsDeleted, ownerIsDeleted, 
+    tradeEvaluate, tradeCreatedTime, tradeComplishTime, tradeCEvaluateTime, tradeCancelTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pxxysecondhand.pojo.TradeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from trade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from trade
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from trade
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pxxysecondhand.pojo.TradeExample" >
+    delete from trade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pxxysecondhand.pojo.Trade" >
+    insert into trade (id, buyerId, itemOwnerId, 
+      tradeItemId, tradeItemTitle, tradeItemImage, 
+      tradeCurrPrice, tradeType, paymentType, 
+      tradeStatus, tradeEvaluateLevel, buyerIsDeleted, 
+      ownerIsDeleted, tradeEvaluate, tradeCreatedTime, 
+      tradeComplishTime, tradeCEvaluateTime, 
+      tradeCancelTime)
+    values (#{id,jdbcType=VARCHAR}, #{buyerid,jdbcType=VARCHAR}, #{itemownerid,jdbcType=VARCHAR}, 
+      #{tradeitemid,jdbcType=VARCHAR}, #{tradeitemtitle,jdbcType=VARCHAR}, #{tradeitemimage,jdbcType=VARCHAR}, 
+      #{tradecurrprice,jdbcType=INTEGER}, #{tradetype,jdbcType=INTEGER}, #{paymenttype,jdbcType=INTEGER}, 
+      #{tradestatus,jdbcType=INTEGER}, #{tradeevaluatelevel,jdbcType=INTEGER}, #{buyerisdeleted,jdbcType=INTEGER}, 
+      #{ownerisdeleted,jdbcType=INTEGER}, #{tradeevaluate,jdbcType=VARCHAR}, #{tradecreatedtime,jdbcType=TIMESTAMP}, 
+      #{tradecomplishtime,jdbcType=TIMESTAMP}, #{tradecevaluatetime,jdbcType=TIMESTAMP}, 
+      #{tradecanceltime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pxxysecondhand.pojo.Trade" >
+    insert into trade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="buyerid != null" >
+        buyerId,
+      </if>
+      <if test="itemownerid != null" >
+        itemOwnerId,
+      </if>
+      <if test="tradeitemid != null" >
+        tradeItemId,
+      </if>
+      <if test="tradeitemtitle != null" >
+        tradeItemTitle,
+      </if>
+      <if test="tradeitemimage != null" >
+        tradeItemImage,
+      </if>
+      <if test="tradecurrprice != null" >
+        tradeCurrPrice,
+      </if>
+      <if test="tradetype != null" >
+        tradeType,
+      </if>
+      <if test="paymenttype != null" >
+        paymentType,
+      </if>
+      <if test="tradestatus != null" >
+        tradeStatus,
+      </if>
+      <if test="tradeevaluatelevel != null" >
+        tradeEvaluateLevel,
+      </if>
+      <if test="buyerisdeleted != null" >
+        buyerIsDeleted,
+      </if>
+      <if test="ownerisdeleted != null" >
+        ownerIsDeleted,
+      </if>
+      <if test="tradeevaluate != null" >
+        tradeEvaluate,
+      </if>
+      <if test="tradecreatedtime != null" >
+        tradeCreatedTime,
+      </if>
+      <if test="tradecomplishtime != null" >
+        tradeComplishTime,
+      </if>
+      <if test="tradecevaluatetime != null" >
+        tradeCEvaluateTime,
+      </if>
+      <if test="tradecanceltime != null" >
+        tradeCancelTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerid != null" >
+        #{buyerid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemownerid != null" >
+        #{itemownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemid != null" >
+        #{tradeitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemtitle != null" >
+        #{tradeitemtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemimage != null" >
+        #{tradeitemimage,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecurrprice != null" >
+        #{tradecurrprice,jdbcType=INTEGER},
+      </if>
+      <if test="tradetype != null" >
+        #{tradetype,jdbcType=INTEGER},
+      </if>
+      <if test="paymenttype != null" >
+        #{paymenttype,jdbcType=INTEGER},
+      </if>
+      <if test="tradestatus != null" >
+        #{tradestatus,jdbcType=INTEGER},
+      </if>
+      <if test="tradeevaluatelevel != null" >
+        #{tradeevaluatelevel,jdbcType=INTEGER},
+      </if>
+      <if test="buyerisdeleted != null" >
+        #{buyerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="ownerisdeleted != null" >
+        #{ownerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="tradeevaluate != null" >
+        #{tradeevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecreatedtime != null" >
+        #{tradecreatedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecomplishtime != null" >
+        #{tradecomplishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecevaluatetime != null" >
+        #{tradecevaluatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecanceltime != null" >
+        #{tradecanceltime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pxxysecondhand.pojo.TradeExample" resultType="java.lang.Integer" >
+    select count(*) from trade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update trade
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyerid != null" >
+        buyerId = #{record.buyerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemownerid != null" >
+        itemOwnerId = #{record.itemownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradeitemid != null" >
+        tradeItemId = #{record.tradeitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradeitemtitle != null" >
+        tradeItemTitle = #{record.tradeitemtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradeitemimage != null" >
+        tradeItemImage = #{record.tradeitemimage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradecurrprice != null" >
+        tradeCurrPrice = #{record.tradecurrprice,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradetype != null" >
+        tradeType = #{record.tradetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymenttype != null" >
+        paymentType = #{record.paymenttype,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradestatus != null" >
+        tradeStatus = #{record.tradestatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeevaluatelevel != null" >
+        tradeEvaluateLevel = #{record.tradeevaluatelevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyerisdeleted != null" >
+        buyerIsDeleted = #{record.buyerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="record.ownerisdeleted != null" >
+        ownerIsDeleted = #{record.ownerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeevaluate != null" >
+        tradeEvaluate = #{record.tradeevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradecreatedtime != null" >
+        tradeCreatedTime = #{record.tradecreatedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tradecomplishtime != null" >
+        tradeComplishTime = #{record.tradecomplishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tradecevaluatetime != null" >
+        tradeCEvaluateTime = #{record.tradecevaluatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tradecanceltime != null" >
+        tradeCancelTime = #{record.tradecanceltime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update trade
+    set id = #{record.id,jdbcType=VARCHAR},
+      buyerId = #{record.buyerid,jdbcType=VARCHAR},
+      itemOwnerId = #{record.itemownerid,jdbcType=VARCHAR},
+      tradeItemId = #{record.tradeitemid,jdbcType=VARCHAR},
+      tradeItemTitle = #{record.tradeitemtitle,jdbcType=VARCHAR},
+      tradeItemImage = #{record.tradeitemimage,jdbcType=VARCHAR},
+      tradeCurrPrice = #{record.tradecurrprice,jdbcType=INTEGER},
+      tradeType = #{record.tradetype,jdbcType=INTEGER},
+      paymentType = #{record.paymenttype,jdbcType=INTEGER},
+      tradeStatus = #{record.tradestatus,jdbcType=INTEGER},
+      tradeEvaluateLevel = #{record.tradeevaluatelevel,jdbcType=INTEGER},
+      buyerIsDeleted = #{record.buyerisdeleted,jdbcType=INTEGER},
+      ownerIsDeleted = #{record.ownerisdeleted,jdbcType=INTEGER},
+      tradeEvaluate = #{record.tradeevaluate,jdbcType=VARCHAR},
+      tradeCreatedTime = #{record.tradecreatedtime,jdbcType=TIMESTAMP},
+      tradeComplishTime = #{record.tradecomplishtime,jdbcType=TIMESTAMP},
+      tradeCEvaluateTime = #{record.tradecevaluatetime,jdbcType=TIMESTAMP},
+      tradeCancelTime = #{record.tradecanceltime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pxxysecondhand.pojo.Trade" >
+    update trade
+    <set >
+      <if test="buyerid != null" >
+        buyerId = #{buyerid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemownerid != null" >
+        itemOwnerId = #{itemownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemid != null" >
+        tradeItemId = #{tradeitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemtitle != null" >
+        tradeItemTitle = #{tradeitemtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeitemimage != null" >
+        tradeItemImage = #{tradeitemimage,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecurrprice != null" >
+        tradeCurrPrice = #{tradecurrprice,jdbcType=INTEGER},
+      </if>
+      <if test="tradetype != null" >
+        tradeType = #{tradetype,jdbcType=INTEGER},
+      </if>
+      <if test="paymenttype != null" >
+        paymentType = #{paymenttype,jdbcType=INTEGER},
+      </if>
+      <if test="tradestatus != null" >
+        tradeStatus = #{tradestatus,jdbcType=INTEGER},
+      </if>
+      <if test="tradeevaluatelevel != null" >
+        tradeEvaluateLevel = #{tradeevaluatelevel,jdbcType=INTEGER},
+      </if>
+      <if test="buyerisdeleted != null" >
+        buyerIsDeleted = #{buyerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="ownerisdeleted != null" >
+        ownerIsDeleted = #{ownerisdeleted,jdbcType=INTEGER},
+      </if>
+      <if test="tradeevaluate != null" >
+        tradeEvaluate = #{tradeevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="tradecreatedtime != null" >
+        tradeCreatedTime = #{tradecreatedtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecomplishtime != null" >
+        tradeComplishTime = #{tradecomplishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecevaluatetime != null" >
+        tradeCEvaluateTime = #{tradecevaluatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradecanceltime != null" >
+        tradeCancelTime = #{tradecanceltime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pxxysecondhand.pojo.Trade" >
+    update trade
+    set buyerId = #{buyerid,jdbcType=VARCHAR},
+      itemOwnerId = #{itemownerid,jdbcType=VARCHAR},
+      tradeItemId = #{tradeitemid,jdbcType=VARCHAR},
+      tradeItemTitle = #{tradeitemtitle,jdbcType=VARCHAR},
+      tradeItemImage = #{tradeitemimage,jdbcType=VARCHAR},
+      tradeCurrPrice = #{tradecurrprice,jdbcType=INTEGER},
+      tradeType = #{tradetype,jdbcType=INTEGER},
+      paymentType = #{paymenttype,jdbcType=INTEGER},
+      tradeStatus = #{tradestatus,jdbcType=INTEGER},
+      tradeEvaluateLevel = #{tradeevaluatelevel,jdbcType=INTEGER},
+      buyerIsDeleted = #{buyerisdeleted,jdbcType=INTEGER},
+      ownerIsDeleted = #{ownerisdeleted,jdbcType=INTEGER},
+      tradeEvaluate = #{tradeevaluate,jdbcType=VARCHAR},
+      tradeCreatedTime = #{tradecreatedtime,jdbcType=TIMESTAMP},
+      tradeComplishTime = #{tradecomplishtime,jdbcType=TIMESTAMP},
+      tradeCEvaluateTime = #{tradecevaluatetime,jdbcType=TIMESTAMP},
+      tradeCancelTime = #{tradecanceltime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <!-- 开始 -->
+  <select id="getEvaluateModels" resultType="com.pxxysecondhand.tempPojo.EvaluateModel">
+  	SELECT t.`buyerId` AS buyerId , t.`tradeEvaluateLevel`  FROM trade t , `user` u ,
+  	 item i WHERE i.`userId`=u.`id` AND t.`tradeItemId`=i.`id` AND t.`tradeStatus`=2 AND 
+  	 t.`tradeEvaluateLevel`IS NOT NULL  AND u.`id`=#{userId} 
+  </select>
+  
+    <select id="getAllOfMyPurchase" resultType="com.pxxysecondhand.tempPojo.MyPurchase">
+  	SELECT t.id AS id,t.`tradeStatus` ,t.`tradeEvaluateLevel`,t.`tradeEvaluate`,t.`tradeComplishTime`,t.`tradeCreatedTime`,
+  	t.`tradeCancelTime`,t.`tradeItemId` AS itemId, t.`tradeItemTitle` AS itemTitle,t.`tradeItemImage` AS image ,t.`tradeCurrPrice` AS currprice,u.`id` AS userId,u.`username` AS ownerName,
+  	u.`phonenumber` FROM trade t ,`user` u WHERE t.`itemOwnerId`=u.`id`  AND t.`buyerIsDeleted` = 0 AND t.`buyerId` =#{itemId} ORDER BY t.`tradeCreatedTime`DESC
+  </select>
+  
+  <select id="getMyPurchaseByTradeId" resultType="com.pxxysecondhand.tempPojo.MyPurchase">
+  		SELECT t.id AS id,t.`tradeStatus` ,t.`tradeEvaluateLevel`,t.`tradeEvaluate`,t.`tradeComplishTime`,t.`tradeCreatedTime`,
+  	t.`tradeCancelTime`,t.`tradeItemId` AS itemId, t.`tradeItemTitle` AS itemTitle,t.`tradeItemImage` AS image ,t.`tradeCurrPrice` AS currprice,u.`id` AS userId,u.`username` AS ownerName,
+  	u.`phonenumber` FROM trade t ,`user` u WHERE t.`buyerId`=u.`id` 
+  	AND t.`id` = #{tradeId}
+  </select>
+  
+  <select id="getBuyerIdAndOwnerId" resultType="com.pxxysecondhand.tempPojo.EvaluateModel">
+  	 SELECT t.`buyerId` AS buyerId , i.`userId` AS ownerId FROM trade t, 
+  	 item  i WHERE t.`tradeItemId`=i.`id` AND t.`id` = #{tradeId}
+  </select>
+  
+  <select id="getNewestTradeByItemId" resultType="com.pxxysecondhand.pojo.Trade">
+  	SELECT  * FROM trade WHERE trade.tradeItemId = #{tradeId} ORDER BY trade.`tradeCreatedTime` DESC LIMIT  0,1
+  </select>
+  
+  <select id="getAllOfMySelled" resultType="com.pxxysecondhand.tempPojo.MySelled">
+	  SELECT t.`tradeItemId`AS itemId , t.`tradeItemTitle` AS itemtitle ,
+	 t.`tradeItemImage` AS  itemImage , t.`tradeCurrPrice` AS currprice , t.`buyerId` AS buyerId , u.`username` AS buyerName ,
+	  u.`phonenumber` AS phoneNumber , t.id AS tradeId , t.`tradeStatus` AS tradeStatus , tradeEvaluateLevel ,tradeCEvaluateTime ,
+	  tradeComplishTime ,tradeCancelTime ,tradeCreatedTime
+	  FROM trade t ,`user` u WHERE t.`buyerId`=u.`id` AND t.`ownerIsDeleted`='0' AND t.`itemOwnerId` = #{ownerId}
+  </select>
+</mapper>

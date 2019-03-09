@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 包扫描器 -->
+  <context:component-scan base-package="com.pxxysecondhand.service"/>
+  
+  <!-- 注册SMSCODEUTIL的实例 -->
+  <bean id="smsCodeUtil" class="com.pxxysecondhand.utils.SMSCodeUtil">
+  </bean>
+  
+  <!-- 注册邮件收发器 -->
+  <bean id="mailutils" class="com.pxxysecondhand.utils.MailUtils">
+  </bean>
+  
+  <!-- 通用计时器的单例 -->
+  <bean id="commonTimer" class="com.pxxysecondhand.component.impl.CommonOperationTimerImpl" />
+  
+  <!-- 60s计时器的单例 -->
+  <bean id="SMSCodeTimer" class="com.pxxysecondhand.component.impl.SMSCodeTimerImpl" />
+	
+  <!-- 用户浏览记录器 -->
+  <bean id="ScannerRecorder" class="com.pxxysecondhand.component.impl.ScanRecorderImpl"></bean>
+  
+    <!-- 用户搜索记录器 -->
+  <bean id="SearchRecorder" class="com.pxxysecondhand.component.impl.SearchRecorderImpl"></bean>
+  
+  <!-- HouseKeeper -->
+  <bean id="mailHostKeeper" class="com.pxxysecondhand.threads.EmailHouseKeeper"></bean>
+  
+  <!-- 自动执行任务1线程 -->
+  <bean id="craftsMan1" class="com.pxxysecondhand.threads.CraftsMan1" scope="request">
+  	<aop:scoped-proxy/>
+  </bean>
+  
+  <!-- 自动执行任务2线程 -->
+  <bean id="craftsMan2" class="com.pxxysecondhand.threads.CraftsMan2" scope="prototype">
+  	<aop:scoped-proxy/>
+  </bean>
+  
+  <!-- 定时任务执器  -->
+  <bean id="timedUpadteScanRecordTask" class="com.pxxysecondhand.threads.TimedUpadteScanRecordTask"></bean>
+  
+  <!-- 注册JedisPool实例 -->
+  <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="300"/> <!--最大能够保持idel状态的对象数-->
+        <property name="maxTotal" value="60000"/><!--最大分配的对象数-->
+        <property name="testOnBorrow" value="true"/><!--当调用borrow Oject方法时，是否进行有效性检查-->
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1" value="114.115.204.56"/>
+        <constructor-arg index="2" value="6379" type="int"/>
+        <constructor-arg index="3" value="2000" type="int"/>
+        <constructor-arg index="4" value="123wan12345"/>
+    </bean>
+    	
+
+  <!-- 单机版Jedis客户端 -->
+  <bean id="jedisSingle" class="com.pxxysecondhand.component.impl.JedisClientSingle"></bean>
+</beans>

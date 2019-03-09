@@ -1,0 +1,175 @@
+@charset "UTF-8";
+body{
+	width: 800px;
+	height: 800px;
+}
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;
+        line-height: 1.5;
+}
+tbody{
+	border-bottom: 1px solid #f5f5f5;
+}
+.tradedetail td{
+	border-right: 1px dotted #d7d7d7;
+}
+.clo01{
+	width: 450px;
+}
+.clo02{
+	width: 120px;
+}
+.clo03{
+	width: 230px;
+}
+.tradeinfo{
+	color: #999;
+	background: #f0f0f0;
+}
+.rowpadding{
+	height: 12px;
+}
+.tradedetail{
+	width: 790px;
+	height: 80px;
+}
+.tradedetail_cell{
+	position: relative;
+}
+.tradeitem_pic{
+	display:inline-block;
+	width: 80px;
+	height:80px;
+	margin-left:3px;
+	overflow: hidden;
+	float: left;
+}
+/*闲置图片大小  */
+.tradeitem_pic img{
+	width: 80px;
+	height: 80px;
+}
+
+em{
+	color: #999;
+	font-family: arial;
+	margin-right: 2px;
+}
+ b{
+    color: #FF4203;
+    font-weight: 700;
+}
+
+.tradedetail_operation button {
+    line-height: 25px;
+    float: left;
+    padding: 0 10px;
+    height: 25px;
+    border: 0;
+    background-color: #2e94d1;
+    color: #FFF;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: transparent\9;
+    background-position: -62px -255px\9;
+    width: 60px;
+    padding: 0;
+}
+.buyerinfo_row{
+	text-align: center;
+}
+.currstatus_span{
+	margin-left: 10px;
+}
+.tradedetail_operation_buttons{
+	width: 225px;
+	height: 25px;
+	margin-left: 20px;
+}
+.tradedetail_operation_button{
+	margin-left: 5px;
+}
+
+/* S=paginator */
+.paginator_wapper{
+	width: 800px;
+	height: 89px;
+}
+.wapper{
+	margin-top:33px;
+}
+.paginator{
+	height: 23px;
+	position: relative;
+}
+.paginator_pre , .paginator_next{
+	display:inline-block;
+	text-indent: -9999px;
+	width: 31px;
+	height: 23px;
+	position: relative;
+}
+.tradedetail_price{
+	width: 60%;
+	float:left;
+	padding-top: 2px;
+}
+.messageNotRead{
+	width: 20%;
+	float:left;
+}
+.tradedetail_collectionNum{
+	width: 20%;
+	float:left;
+}
+.tradedetail_cell_left{
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+.tradedetail_cell_right{
+    position: absolute;
+    float: left;
+    padding-left: 10px;
+    display:inline-block;
+    width: 350px;
+    height: 80px;
+    clear: both;
+}
+.tradedetail_top{
+	height: 55px;
+	overflow: hidden;
+}
+.tradedetail_bottom{
+	height: 25px;
+	width: 348px;
+}
+.pricebB{
+	font-size: 15px;
+}
+ .messageNotReadImg{
+	padding-top: 2px;
+	width: 20px;
+} 
+.currstatus_span a{
+	text-decoration: none;
+	cursor: pointer;
+}
+.downStatus{
+	background-color: red;
+}
+.tradedetail_operation_button:hover{
+	background: #0080ff;
+}
+.noneTip{
+	margin: 0 auto;
+	width: 400px;
+}
+.collectionTipSpan{
+	font-size: 30px;
+	text-align:center;
+	font-weight: bold;
+}

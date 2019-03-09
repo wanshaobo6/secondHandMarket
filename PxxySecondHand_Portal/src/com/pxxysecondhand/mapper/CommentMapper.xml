@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pxxysecondhand.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.pxxysecondhand.pojo.Comment" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="itemId" property="itemid" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentid" jdbcType="VARCHAR" />
+    <result column="isParent" property="isparent" jdbcType="INTEGER" />
+    <result column="fromUserId" property="fromuserid" jdbcType="VARCHAR" />
+    <result column="fromUserName" property="fromusername" jdbcType="VARCHAR" />
+    <result column="toUserId" property="touserid" jdbcType="VARCHAR" />
+    <result column="toUserName" property="tousername" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="havaread" property="havaread" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, itemId, parentId, isParent, fromUserId, fromUserName, toUserId, toUserName, content, 
+    createTime, havaread
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pxxysecondhand.pojo.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pxxysecondhand.pojo.CommentExample" >
+    delete from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pxxysecondhand.pojo.Comment" >
+    insert into comment (id, itemId, parentId, 
+      isParent, fromUserId, fromUserName, 
+      toUserId, toUserName, content, 
+      createTime, havaread)
+    values (#{id,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{isparent,jdbcType=INTEGER}, #{fromuserid,jdbcType=VARCHAR}, #{fromusername,jdbcType=VARCHAR}, 
+      #{touserid,jdbcType=VARCHAR}, #{tousername,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{havaread,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pxxysecondhand.pojo.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="itemid != null" >
+        itemId,
+      </if>
+      <if test="parentid != null" >
+        parentId,
+      </if>
+      <if test="isparent != null" >
+        isParent,
+      </if>
+      <if test="fromuserid != null" >
+        fromUserId,
+      </if>
+      <if test="fromusername != null" >
+        fromUserName,
+      </if>
+      <if test="touserid != null" >
+        toUserId,
+      </if>
+      <if test="tousername != null" >
+        toUserName,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="havaread != null" >
+        havaread,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isparent != null" >
+        #{isparent,jdbcType=INTEGER},
+      </if>
+      <if test="fromuserid != null" >
+        #{fromuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="fromusername != null" >
+        #{fromusername,jdbcType=VARCHAR},
+      </if>
+      <if test="touserid != null" >
+        #{touserid,jdbcType=VARCHAR},
+      </if>
+      <if test="tousername != null" >
+        #{tousername,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="havaread != null" >
+        #{havaread,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pxxysecondhand.pojo.CommentExample" resultType="java.lang.Integer" >
+    select count(*) from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemid != null" >
+        itemId = #{record.itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentid != null" >
+        parentId = #{record.parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isparent != null" >
+        isParent = #{record.isparent,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromuserid != null" >
+        fromUserId = #{record.fromuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fromusername != null" >
+        fromUserName = #{record.fromusername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.touserid != null" >
+        toUserId = #{record.touserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tousername != null" >
+        toUserName = #{record.tousername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.havaread != null" >
+        havaread = #{record.havaread,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update comment
+    set id = #{record.id,jdbcType=VARCHAR},
+      itemId = #{record.itemid,jdbcType=VARCHAR},
+      parentId = #{record.parentid,jdbcType=VARCHAR},
+      isParent = #{record.isparent,jdbcType=INTEGER},
+      fromUserId = #{record.fromuserid,jdbcType=VARCHAR},
+      fromUserName = #{record.fromusername,jdbcType=VARCHAR},
+      toUserId = #{record.touserid,jdbcType=VARCHAR},
+      toUserName = #{record.tousername,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      havaread = #{record.havaread,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pxxysecondhand.pojo.Comment" >
+    update comment
+    <set >
+      <if test="itemid != null" >
+        itemId = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isparent != null" >
+        isParent = #{isparent,jdbcType=INTEGER},
+      </if>
+      <if test="fromuserid != null" >
+        fromUserId = #{fromuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="fromusername != null" >
+        fromUserName = #{fromusername,jdbcType=VARCHAR},
+      </if>
+      <if test="touserid != null" >
+        toUserId = #{touserid,jdbcType=VARCHAR},
+      </if>
+      <if test="tousername != null" >
+        toUserName = #{tousername,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="havaread != null" >
+        havaread = #{havaread,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pxxysecondhand.pojo.Comment" >
+    update comment
+    set itemId = #{itemid,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=VARCHAR},
+      isParent = #{isparent,jdbcType=INTEGER},
+      fromUserId = #{fromuserid,jdbcType=VARCHAR},
+      fromUserName = #{fromusername,jdbcType=VARCHAR},
+      toUserId = #{touserid,jdbcType=VARCHAR},
+      toUserName = #{tousername,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      havaread = #{havaread,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!--递归 查询出所有的评论 -->
+  <resultMap type="com.pxxysecondhand.tempPojo.ItemDescComment" id="itemDescCommentMap">
+  	<id column="id" property="id"/>
+  	<result column="itemid" property="itemid"/>
+  	<result column="fromuserid" property="fromuserid"/>
+  	<result column="fromusername" property="fromusername"/>
+  	<result column="touserid" property="touserid"/>
+  	<result column="tousername" property="tousername"/>
+  	<result column="content" property="content"/>
+  	<result column="createtime" property="createtime"/>
+  	<collection property="itemDescComments" ofType="com.pxxysecondhand.tempPojo.ItemDescComment" column="id"  select="getChildrenComment"></collection>
+  	
+  </resultMap>
+  <select id="getCommentByItemId"  resultMap="itemDescCommentMap">
+  		select id,itemid,fromuserid,fromusername,touserid,tousername,content,createtime from comment where itemid=#{itemId} and parentId='0' order by createtime  desc
+  </select>
+    <select id="getChildrenComment"  resultMap="itemDescCommentMap">
+  		select id,itemid,fromuserid,fromusername,touserid,tousername,content,createtime from comment where parentId=#{id} order by createtime  desc
+  </select>
+</mapper>

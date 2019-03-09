@@ -1,0 +1,78 @@
+.main .mainOuter {
+    overflow: hidden;
+    min-height: 509px;
+    _height: auto;
+    background: url(../image/mainOuterBg.jpg) no-repeat center bottom;
+}
+.main {
+    background: url(../image/mainBg.jpg) repeat-x left bottom #4F93D0;
+    min-width: 910px;
+}
+#divMain{
+	width:980px;
+	margin: 50px auto;
+	}
+#divTitle{
+	opacity:0.7;
+	width:780px;
+	margin: 0px auto;
+	height:30px;
+	border:1px solid #d0d0d0;
+	background:url(../image/bg_btns.png) repeat-x 0px -132px; 
+	}
+#divBody{width:780px;background-color:rgba(254,232,183,0.7); margin: 0px auto;height:480px;border-left:1px solid #d0d0d0;border-right:1px solid #d0d0d0;border-bottom:1px solid #d0d0d0;}
+#spanTitle{line-height:30px;font-weight:900;margin-left:18px;}
+.tdText{width:300px;text-align:right;}
+.tdInput{width:250px;}
+.tsError{width:300px;}
+#tableForm{line-height:50px;}
+.inputClass{width:240px;height:32px;padding-left:10px;border:1px solid #7f9db9;}
+#imgVerifyCode{width:100px;height:50px;}
+#divVerifyCode{width:240px;height:60px;text-align:center;border:1px solid #e2e2e2;line-height:60px;}
+.labelError{color:#f40000;background-color:#fef2f2; border-color:#ffb8b8;font-size:10pt;padding:8px 8px 8px 35px;background-image:url(../image/error.png);background-repeat:no-repeat;font-weight:bold;}
+.send_sms {
+    border: 1px #3083ff solid;
+    border-radius: 4px;
+    background-color: #3487ff;
+    box-shadow: 0 5px 8px 0 rgba(24,95,255,.1);
+    color: #fff;
+    text-align: center;
+    font-weight: lighter;
+    background-image: linear-gradient(0deg,#398bff,#3083ff);
+    float: right;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.smsInput{
+	width: 120px;
+	height:30px;
+	border:1px solid #7f9db9;
+}
+.tr_sms{
+	display: none;
+}
+.sms_disabled {
+    border: 1px #F0F0F0 solid;
+    border-radius: 4px;
+    background-color: #F0F0F0;
+    box-shadow: 0 5px 8px 0 rgba(24,95,255,.1);
+    color: #D1CCCC;
+    text-align: center;
+    font-weight: lighter;
+    float: right;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    cursor: default;
+}
+.checkbox {
+	display:inline;
+	height:20px;
+	line-height:20px;
+    font-size: 12px;
+    color: #aaa;
+}

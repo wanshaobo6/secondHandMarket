@@ -1,0 +1,84 @@
+@charset "UTF-8";
+.main{
+		width: 500px;
+		height: 380px;
+		border: 1px #CCCCCC solid;
+           margin:50px auto;
+		text-align: center;
+	}
+	.step1{
+		float: left;
+		margin: 20px 30px 0px 70px;
+		width: 75px;
+		height: 30px;
+		padding-top: 10px;
+		background-color: blanchedalmond;
+	} 
+	.step2{
+		float: left;
+		margin: 20px 30px 0px 10px;
+		width: 75px;
+		height: 30px;
+		padding-top: 10px;
+		background-color: blanchedalmond;
+	} 
+	.step3{
+		float: left;
+		margin: 20px 30px 0px 10px;
+		width: 75px;
+		height: 30px;
+		padding-top: 10px;
+		background-color: blanchedalmond;
+	} 
+	#container1{
+		margin: 100px 0 0 100px;
+		width: 400px;
+		height: 400px;
+	    display: block;
+	}
+	#container2{
+		margin: 100px 0 0 100px;
+		width: 450px;
+		height: 400px;
+		position: absolute;
+	}
+	#container3{
+		width: 200px;
+		height: 200px;
+		display: block;
+		text-align: center;
+		font-size: 26px;
+		padding: 100px;
+	}
+	
+	#submitBtn1{
+		width: 260px;
+		height: 35px;
+		background: orange;
+		margin-left: -45px;
+		position: relative;
+	}
+	#submitBtn2{
+		width: 260px;
+		height: 35px;
+		background: orange;
+		margin-left: -45px;
+		position: relative;
+	}
+	
+	.input{
+		width: 200px;
+		height: 30px;
+	}
+	.verifyCodeInput{
+		width: 200px;
+		height: 30px;
+	}
+	.sendbtn{
+		height: 30px;
+		
+	}
+	i{
+		float: left;
+		margin: 30px 10px;
+	}

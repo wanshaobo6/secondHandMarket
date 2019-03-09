@@ -1,0 +1,136 @@
+@charset "UTF-8";
+ select{ 
+ 	font-family: "微软雅黑"; 
+ 	background: rgba(0,0,0,0); 
+ 	width: 230px;
+ 	 height: 32px; 
+ 	 font-size: 14px; 
+ 	 color: black; 
+ 	 text-align: center; 
+ 	 border: 1px #1a1a1a solid; 
+ 	 border-radius: 5px; 
+ } 
+option{ 
+	color: #c0c0c0; 
+	background: #ffffff; 
+	line-height: 20px;
+ } 
+select:focus{ 
+	border: 2px #ddd solid; 
+	box-shadow: 0 0 15px 1px #DDDDDD; 
+} 
+option:hover{ 
+	background: #EBCCD1; 
+}
+.formwapper{
+	width: 980px;
+	height:1020px;
+	margin: 0 auto;
+	border: 1px solid #f5f5f5;
+}
+.form_title s{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background: url('../image/glyphicons-halflings.png') -263px -22px;
+}
+.block_wapper{
+	width: 980px;
+	height: 360px;
+}
+.block_title{
+	height: 64px;
+	position: relative;
+	margin-top: 20px;
+}
+.block_title h2 {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 138px;
+    color: #333;
+    font-size: 20px;
+    font-family: "Hiragino Sans GB","微软雅⿊","Microsoft YaHei",SimHei,Tahoma,"宋体b8b体",SimSun,sansserif;
+    font-weight: bolder;
+}
+.block_content{
+	width: 980px;
+	height: 262px;
+}
+.rows_wapper{
+	height: 65px;
+}
+.rows_title{
+	width: 138px;
+	height: 38px;
+}
+.rows_title>span{
+	display:inline-block;
+	width: 100%;
+	height: 100%;
+	line-height: 38px;
+	text-align: right;
+	color: gray;
+	font-size: 14px;
+}
+.rows_title_star {
+    display: inline;
+    color: #FD634F;
+    margin-right: 5px;
+}
+.rows_content{
+	height: 36px;
+	width: 770px;
+}
+.input_control{ 
+  width:360px;
+  margin:20px auto;
+} 
+.inputBox{
+	height: 32px;
+}
+.inputtext{ 
+  box-sizing: border-box;
+  font-size:1.2em;
+  height:32px;
+  width:230px;
+  border-radius:4px;
+  border:1px solid #c8cccf;
+  color:#6a6f77;
+  -web-kit-appearance:none;
+  -moz-appearance: none;
+  display:block;
+  outline:0;
+  padding:0 1em;
+  text-decoration:none;
+}
+.inputtext:focus{ border:1px solid #ff7496;
+}
+.rows_detail{
+	height:300px;
+}
+.rows_kingeditor{
+	height:300px;
+	width: 770px;
+}
+.publicbutton{
+	margin-top:20px;
+	background: #FFCC66;
+	color: #747D2e;
+}
+.button {
+	background-color:#F0F0EE;
+	color:black;
+	padding:10px 16px;
+	text-align:center;
+	text-decoration:none;
+	display:inline-block;
+	font-size:12px;
+	cursor: pointer;
+	}
+.pics ul li{
+	float: left;
+}
+.pictures{
+	height: 100px;
+}

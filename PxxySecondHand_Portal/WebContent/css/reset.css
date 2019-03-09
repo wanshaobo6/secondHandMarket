@@ -1,0 +1,35 @@
+html{
+	color:#000;
+	background:#FFF;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+	font-size: 12px;
+}
+h1, h2, h3{ 
+	font-weight:normal; 
+	font-size:100%; 
+}
+a { 
+	color:#555; 
+	text-decoration:none; 
+	font-size: 12px;
+	
+}
+a:hover {
+	color: blue;
+	cursor: pointer;
+}
+img { 
+	border:none; 
+}
+ol,ul,li { 
+	list-style:none; 
+}
+table { 
+	border-collapse:collapse; 
+	}
+input{
+	border:none;
+}

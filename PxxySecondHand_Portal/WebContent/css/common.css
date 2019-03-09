@@ -1,0 +1,19 @@
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.indexicon{
+	background-color: pink;
+}
+.title{
+	background: #EEEEEE url('../image/head_bg.gif') repeat-x;
+	height: 31px;
+	line-height: 31px;
+	font-size: 20px;
+	border:#DDDDDD 1px solid;
+	border-bottom: none;
+	padding:0px  10px 0px 10px;
+	overflow: hidden;
+}

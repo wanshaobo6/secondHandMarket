@@ -1,0 +1,5 @@
+.project
+.settings
+.svn
+build
+.classpath

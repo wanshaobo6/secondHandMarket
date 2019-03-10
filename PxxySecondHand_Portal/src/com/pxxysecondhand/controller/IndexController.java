@@ -61,9 +61,6 @@ public class IndexController {
 		 List<GuessItem> guessList = searchService.searchByUserHabit(request, response);
 		 mv.addObject("guessList",guessList);
 		 mv.addObject("messageList", JsonUtils.jsonToList(JsonUtils.objectToJson(result.getItemList()), WebDynamicMessage.class));
-		 //查询所有的分类
-		 List<ItemCat> itemCats = itemCatService.queryAllCatgories();
-		 mv.addObject("itemCats" , itemCats);
 		 mv.setViewName("index");
 		return mv;
 	

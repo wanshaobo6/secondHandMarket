@@ -14,6 +14,7 @@
 <link rel="styleSheet" href="${pageContext.request.contextPath}/css/sweetalert2.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/sweetalert2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/vue.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/commons/top.jsp"></jsp:include>
@@ -122,38 +123,27 @@
 	  			<s class="catalog_title_icon"></s><strong>物品分类</strong>
 	  		</div>
 	  		<!-- S = 分类体 -->
-  			<div class="catalog_body" >
-  				<div class="curr_child_category_box" >
+  			<div class="catalog_body" id="catagory_body" >
+  				<div class="curr_child_category_box" v-show="showCurrChildBox" v-on:mouseenter="showCurrChildBox = true" v-on:mouseleave="showCurrChildBox = false">
   					 <span class="main-link" style="padding:10px">
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-				            手机
+				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank" v-for="cat in selectedItemCat.itemCat" v-text="cat.categoryname">
 				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.3&amp;catid=50100401&amp;ist=1" target="_blank">
-				            相机
-				          </a>
-				          <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.4&amp;catid=50100423&amp;st_trust=1&amp;ist=1" target="_blank">
-				            笔记本
-				          </a>
-				        </span>
+				       </span>
   				</div>
  				<ul class="parent_category">
-  				 	<c:forEach items="${itemCats}" var="itemCat" begin="0" end="5" varStatus="status">
-  				 		 <li class="child_category ">
+  				 		 <li class="child_category" v-for="(itemCat,index) in itemCats" @key="index" v-show="index<6"   v-on:mouseenter="mouseinCurrChildDialog(index)"  v-on:mouseleave="mouseoutCurrChildDialog(index)" >
 						      <div class="item_box" >
 						        <b>  </b>
-						        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0" onmouseover="showCurrChildBox(${status.index+1})"  target="_blank">
-						       	  ${itemCat.categoryname}
+						        <a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.1&amp;catid=50100398&amp;st_trust=1&amp;ist=0"   target="_blank" >
+						       	  {{itemCat.categoryname}}
 						        </a>
 						        <span class="main-link">
-						          <c:forEach items="${itemCat.itemCat}" var="childItemCat" begin="0" end="2">
-						          	<a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank">
-						          	  ${childItemCat.categoryname}
+						          	<a href="//s.2.taobao.com/list/list.htm?spm=a2170.1841804.1867087.2&amp;catid=50100398&amp;st_trust=1&amp;ist=1" target="_blank" v-for="(childItemCat,i) in itemCat.itemCat" @key="i" v-show="i<3">
+						          	  {{childItemCat.categoryname}}
 						          	</a>
-						          </c:forEach>
 						        </span>
 						      </div>
   				 		 </li>
-  				 	</c:forEach>
 				</ul>
   			</div>
   				<!-- E = 分类体 -->
@@ -427,12 +417,7 @@
 		</table>
 		</div>
 	<!-- E=coptright -->
-	<script type="text/javascript">
-    //悬浮显示当前分类的所有子分类框
-    function showCurrChildBox(i){
-    	$(".curr_child_category_box").css("top",i == 1 ? 15 : 15+45*(i-1)+"px");
-    }
-	</script>
+	
 	<script type="text/javascript">
 		$(function(){
 		        // 初始化轮播
@@ -462,8 +447,40 @@
 		            $("#myCarousel").carousel(2);
 		        });
 		        
-		  
 		    });
+	</script>
+	<script type="text/javascript">
+		var categoryList = new Vue({
+			el:"#catagory_body",
+			data:{
+				itemCats:[],
+				showCurrChildBox:false,
+				selectedItemCat:{},
+				
+			},
+			methods:{
+				mouseinCurrChildDialog(index){
+					this.showCurrChildBox = true;
+					this.selectedItemCat = this.itemCats[index];
+					document.getElementsByClassName("curr_child_category_box")[0].style.top=(index==0?15:45*index+15)+"px";
+				},
+				mouseoutCurrChildDialog(index){
+					this.showCurrChildBox = false;
+				}
+			},
+			created(){
+				 $.ajax({
+						async:false,
+						cache:false,
+						url:"itemcat/queryAllCatgories.do",
+						type:"get",
+						success:(data) => {
+							this.itemCats = data;
+							this.selectedItemCat = this.itemCats[0];
+						}
+					});
+			}
+		  });
 	</script>
 </body>
 </html>

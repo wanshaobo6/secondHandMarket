@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pxxysecondhand.pojo.ItemCat;
 import com.pxxysecondhand.service.IItemCatService;
+import com.pxxysecondhand.utils.JsonUtils;
 
 /**
  * @author  
@@ -47,9 +48,9 @@ public class ItemCatController {
 		return children;
 	}
 	
-	@RequestMapping("queryAllCatgories")
+	@RequestMapping(value="queryAllCatgories",produces="application/json;charset=UTF-8")
 	@ResponseBody
-	public List<ItemCat> queryAllCatgories(){
-		return itemCatService.queryAllCatgories();
+	public String queryAllCatgories(){
+		return JsonUtils.objectToJson(itemCatService.queryAllCatgories());
 	}
 }

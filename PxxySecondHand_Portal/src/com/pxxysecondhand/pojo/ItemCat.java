@@ -64,5 +64,13 @@ public class ItemCat {
 	public void setItemCat(List<ItemCat> itemCats) {
 		this.itemCats = itemCats;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemCat [id=" + id + ", categoryname=" + categoryname + ", parentid=" + parentid + ", isparent="
+				+ isparent + ", created=" + created + ", itemCats=" + itemCats + "]";
+	}
+	
+	
     
 }

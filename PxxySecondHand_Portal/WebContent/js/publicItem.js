@@ -11,16 +11,16 @@
 		}});
 		//初始化一级目录
 		var parentId = initFirstLevelCatSelect();
-		//初始化二级目录
-		selectItemCatByParentId(parentId);
 		//为每个一级目录添加事件
-		$(".firstLevelCatSelect").children().click(
+		$(".firstLevelCatSelect").change(
 			function(){
 				var parentId = this.value;
 				$(".secondLevelCatSelect").html("");
 				selectItemCatByParentId(parentId);
 			}		
 		);
+		//初始化二级目录
+		selectItemCatByParentId(parentId);
 		//为发布按钮添加浮动事件
 		$(".publicbutton").hover(
 		   function(){
@@ -40,20 +40,20 @@
 	})
 	function initFirstLevelCatSelect(){
 		var firstCatId ;
-		$.ajax({
-			async:false,
-			cache:true,
-			url:"itemcat/selectItemCatListByParentId.do",
-			dataType:"json",
-			type:"post",
-			success:function(data){
-				for(var i in data){
-					if(i==0)
-					  firstCatId = data[i].id;
-					$(".firstLevelCatSelect").append("<option value='"+data[i].id+"'>"+data[i].categoryname+"</option>");
+			$.ajax({
+				async:false,
+				cache:true,
+				url:"itemcat/selectItemCatListByParentId.do",
+				dataType:"json",
+				type:"post",
+				success:function(data){
+					for(var i in data){
+						if(i==0)
+						  firstCatId = data[i].id;
+						$(".firstLevelCatSelect").append("<option value='"+data[i].id+"'>"+data[i].categoryname+"</option>");
+					}
 				}
-			}
-		});
+			});
 		return firstCatId;
 	}
 	function selectItemCatByParentId(parentId){

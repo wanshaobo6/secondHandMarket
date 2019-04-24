@@ -38,7 +38,7 @@
 						</div>
 						<div class="rows_content fr">
 							<div class="selectordef">
-								<select class="selectBox firstLevelCatSelect">
+								<select class="selectBox firstLevelCatSelect" id="firstLevelelect">
 								</select>
 							</div>
 						</div>

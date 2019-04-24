@@ -1,7 +1,9 @@
 package com.pxxysecondhand.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -76,5 +78,11 @@ public class IndexController {
 		}
 		mv.setViewName(page);
 		return mv;
+	}
+	
+	@RequestMapping("/admin/{page}")
+	public String showManagePage(@PathVariable String page , HttpServletRequest request, HttpServletResponse response) {
+		String pagePath = "/admin/pages/"+page;
+		return pagePath;
 	}
 }

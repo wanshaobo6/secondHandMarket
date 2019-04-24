@@ -288,11 +288,11 @@
                                     </tr>
                                     <tr>
                                          <td align="left">
-                                            <a href="http://oa.pxc.jx.cn/" target="_blank"><font style="color:#686399; font-size:12px; ">OA办公</font></a>
+                                            <a href="${pageContext.request.contextPath }/admin/AdminLogin.html" target="_blank"><font style="color:#686399; font-size:12px; ">后台管理</font></a>
                                             
                                             
                                             &nbsp;
-<a href="http://portal.pxc.jx.cn/" target="_blank"><font style="color:#686399; font-size:12px; ">智慧校园入口</font></a>
+    <a href="http://portal.pxc.jx.cn/" target="_blank"><font style="color:#686399; font-size:12px; ">智慧校园入口</font></a>
                                             
                                             
                                             &nbsp;

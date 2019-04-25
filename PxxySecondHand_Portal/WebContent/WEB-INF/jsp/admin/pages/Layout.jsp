@@ -7,6 +7,7 @@
 <title>后台管理主面板</title>
 	<script type="text/javascript" src="/PxxySecondHand_Portal/js/vue.js"></script>
 	<script type="text/javascript" src="/PxxySecondHand_Portal/js/vuetify.js"></script>
+	<script type="text/javascript" src="/PxxySecondHand_Portal/js/vue-router.js"></script>
 	<link rel="stylesheet" href="/PxxySecondHand_Portal/css/vuetify.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"/>    
 </head>
@@ -36,44 +37,101 @@
             	</v-list-tile>
 	         </v-list>
     	</v-toolbar>
-    	<v-divider/>    <!-- 在该容器下面添加一条分割线 -->
-    	   <!-- 左侧菜单 -->
-	     <!--  <v-list class="pt-0" dense>
-	        <v-list-group
-	          v-model="item.active"
-	          v-for="item in items"
-	          :key="item.title"
-	          :prepend-icon="item.action"
-	          no-action
-	        >
-	          一级菜单
-	          <v-list-tile slot="activator">
-	            <v-list-tile-content>
-	              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-	            </v-list-tile-content>
-	          </v-list-tile>
-	          二级菜单
-	          <v-list-tile v-for="subItem in item.items" :key="subItem.title" :to="item.path + subItem.path">
-	            <v-list-tile-content>
-	              <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-	            </v-list-tile-content>
-	            <v-list-tile-action>
-	              <v-icon>{{ subItem.action }}</v-icon>
-	            </v-list-tile-action>
-	          </v-list-tile>
-	        </v-list-group>
-	      </v-list> -->
-    	</v-navigation-drawer>
-	</v-app>
+    	
+    	<v-divider>     <!-- 分割线  必须双标签 -->
+    	</v-divider>
+    	
+   	   <!-- 左侧菜单 -->
+      <v-list class="pt-0" dense>
+        <v-list-group
+          v-model="item.active"
+          v-for="item in items"
+          :key="item.title"
+          :prepend-icon="item.action"
+          no-action
+        >
+          <!--一级菜单 -->
+          <v-list-tile slot="activator">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <!-- 二级菜单 -->
+          <v-list-tile v-for="subItem in item.items" :key="subItem.title" :to="item.path + subItem.path">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon>{{ subItem.action }}</v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+    
+      <!-- 顶部工具条 -->
+    <v-toolbar
+      app
+      dark
+      :color="dark ? 'secondary' : 'primary'"
+    >
+	      <!-- 隐藏左侧菜单的按钮-->
+	      <v-toolbar-side-icon @click.stop="drawer = !drawer" >
+	      </v-toolbar-side-icon>
+	         <!-- 收起左侧菜单的按钮-->
+	      <v-btn icon @click.stop="miniVariant = !miniVariant">
+	        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"/>
+	      </v-btn>
+	      <!-- 切换黑暗主题 -->
+	      <v-flex xs1>
+	        <v-switch
+	          :label="dark ? '暗黑' : '明亮'"
+	          v-model="dark"
+	          color="dark"
+	          hide-details
+	        />
+	      </v-flex>
+	       <!-- 顶部导航标题 -->
+	      <v-flex xs3></v-flex>
+	      <v-toolbar-title v-text="title"/>
+	      <v-spacer/>
+	    </v-toolbar>
+	      <!--中间内容主体-->
+	    <v-content>
+	      <v-breadcrumbs>
+	        <v-icon slot="divider">chevron_right</v-icon>
+	        <v-breadcrumbs-item>{{item1}}</v-breadcrumbs-item>
+	        <v-breadcrumbs-item>{{item2}}</v-breadcrumbs-item>
+	      </v-breadcrumbs>
+	      <div>
+	        <!--定义一个路由锚点，Layout的子组件内容将在这里展示-->
+	        <router-view>
+	        </router-view>
+	      </div>
+	    </v-content>
+ </v-app>
 </body>
 <script  type="module">
-  import menu from "../js/menu.js";    //导入数据
+  import menu from "../components/admin/js/menu.js";    //导入数据
+  import component1 from "../components/admin/mainContent/component1.js";    //导入数据
+   import component2 from "../components/admin/mainContent/component2.js";    //导入数据
+	const router = new VueRouter({
+		routes:[{path : "/index/dashboard" , component : component1 }
+				,{path : "/item/category" , component : component2 }
+				]
+	})
+	
+	
 	var Main = new Vue({
 		el:"#MainFrame",
 		data:{
 			dark:false,
 			miniVariant:false, //左侧是否收起
-			drawer : true  //左侧是否隐藏
+			drawer : true  ,//左侧是否隐藏
+     		drawerRight: false,
+			title:"跳蚤市场后台管理系统",
+			item1:"首页",
+			item2:"统计"
 		},
 		methods:{
 			
@@ -82,7 +140,12 @@
 			items(){
 				return menu;
 			}
-		}
+		},
+		components:{
+	   		component1,
+			component2
+		},
+		router,
 	})
 </script>
 </html>

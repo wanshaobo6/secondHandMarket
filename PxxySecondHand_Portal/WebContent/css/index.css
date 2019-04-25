@@ -411,19 +411,60 @@ HR {
 	transition:top 0.5s;
 	-webkit-transition:top 0.5s;
 }
-/* .privateMsg{
-	margin-top:10px;
-	background: url(../image/glyphicons-halflings.png) -72px 0;
-	height: 16px;
-	width: 16px;
-	display: inline-block;
+
+/* S=所有分类 */
+.allCategoriesPan{
+	width: 980px;
+	margin: 0 auto;
 }
-.publicMsg{
-	margin-top:10px;
-	background:url("../image/smallImage_iqy1.jpg") -1px  -38px;
-	height: 20px;
-	width: 22px;
-	display: inline-block;
-	float:right;
-} */
-/* //background:url("../image/smallImage_iqy1.jpg") -194px  -3px; */
+.content .titlefont{
+		color: #4b4b4b;
+		font-style: 14px;
+		font-weight: 700;
+	}
+	.clearfix::before{
+		content: '';
+		display:table;
+		clear:both
+	}
+	#all_catagory{
+		text-align:left;
+		padding:2px 2px 0px 2px;
+		width:100px;
+		height:30px;
+		color:#789;
+		background:lawngreen;
+		font-size:20px ;
+		border-top-right-radius: 20px;
+	}
+	#location{
+		padding:2px 2px 2px 2px;
+		width:980px;
+		height:350px;
+		border-left:2px solid#cccccc;
+		border-right:2px solid#cccccc;
+		border-top:  2px solid #7CFC00;
+		border-bottom:2px solid#CCCCCC;
+	}
+	.fenlei{
+		width:290px;
+		height:55px;
+		padding:5px 10px 10px 10px;
+		float:left;
+		font-size: 12px;
+		font-family: arial;
+	}
+	.marginLeft{
+		margin-left: 3px;
+		margin-top: 6px;
+	}
+	.marginLeft a{
+		color: #707070;
+	}			
+	.fenlei2,.fenlei3{
+		width: 230px;
+		height: 40px;
+		padding:5px 10px 10px 10px;
+		font-family: arial;	
+	}
+/* E=所有分类 */

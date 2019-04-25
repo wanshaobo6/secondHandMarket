@@ -121,6 +121,7 @@
 		<div class="c_catalog fl">
 			<div class="catalog_title title">
 	  			<s class="catalog_title_icon"></s><strong>物品分类</strong>
+	  			<a class="fr" @mouseenter="showAllCategory = true" @mouseleave="showAllCategory = false">更多>></a>
 	  		</div>
 	  		<!-- S = 分类体 -->
   			<div class="catalog_body" id="catagory_body" >
@@ -130,6 +131,7 @@
 				          </a>
 				       </span>
   				</div>
+  				
  				<ul class="parent_category">
   				 		 <li class="child_category" v-for="(itemCat,index) in itemCats" @key="index" v-show="index<6"   v-on:mouseenter="mouseinCurrChildDialog(index)"  v-on:mouseleave="mouseoutCurrChildDialog(index)" >
 						      <div class="item_box" >
@@ -239,6 +241,215 @@
 		</div>
 	</div>
 	<!-- E=GuessYouLike -->
+	
+	<!-- S = ShowAllCategory -->
+		<div class="allCategoriesPan">
+			<div class="tbg" id=all_catagory >所有类目</div>
+			<div class="content" id="location" >
+			<div class="fenlei" id="baihuo">	
+		<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei">	
+			<dt>
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	                        <br />                          </dt>
+	                <dd class="marginLeft">
+	                  <a target="_blank" href="/chuangdian/">床</a>
+	                      <a target="_blank" href="/guizi/">柜子</a>
+	                   <a target="_blank" href="/zhuoyi/">桌椅</a>
+	                <a target="_blank" href="/shafachaji/">沙发</a>
+	                  <a target="_blank" href="/zixingchemaimai/">自行车</a>
+	                  <a target="_blank" href="/diandongche/">电动车</a>
+	                     <a target="_blank" href="/motuoche/">摩托车</a>
+	                     </dd>
+	            </dl>
+	        </div>
+	        <div class="fenlei2 fl">	
+			
+	           <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+	            <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+	        </div>             
+      		  <div class="fenlei3 fl">	
+         		  <a  target="_blank" href="/jiaju/" class="titlefont">二手家具</a>
+          		  <a style="padding-left: 20px;" target="_blank" href="/rirongbaihuo/" class="titlefont">家居百货</a>
+       		 </div>
+       	 </div>
+		</div>
+	<!-- E = ShowAllCategory -->
 	
 	<!-- S=division  -->
 	<HR style="FILTER: alpha(opacity=0,finishopacity=100,style=1)" width="980px" color=#EEEEEE SIZE=3>
@@ -466,7 +677,8 @@
 				},
 				mouseoutCurrChildDialog(index){
 					this.showCurrChildBox = false;
-				}
+				},
+				
 			},
 			created(){
 				 $.ajax({

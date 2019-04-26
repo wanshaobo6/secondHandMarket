@@ -91,7 +91,7 @@ public class SearchRecorderImpl implements ISearchRecorder{
 	}
 
 	/* (non-Javadoc)
-	 * @see com.pxxysecondhand.component.ISearchRecorder#getPopulteKeywords(int)
+	 * @see com.pxxysecondhand.component.#getPopulteKeywords(int)
 	 */
 	@Override
 	public List<String> getPopulteKeywords() {

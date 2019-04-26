@@ -1,3 +1,5 @@
+package com.pxxysecondhand.test;
+
 /**   
 * @Title: FastdfsTest.java 
 * @Package com.pxxysecondhand.test 
@@ -8,8 +10,6 @@
 * @version V1.0   
 */
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Date;
 
 import org.csource.fastdfs.ClientGlobal;

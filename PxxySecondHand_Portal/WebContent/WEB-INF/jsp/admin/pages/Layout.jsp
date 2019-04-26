@@ -9,7 +9,12 @@
 	<script type="text/javascript" src="/PxxySecondHand_Portal/js/vuetify.js"></script>
 	<script type="text/javascript" src="/PxxySecondHand_Portal/js/vue-router.js"></script>
 	<link rel="stylesheet" href="/PxxySecondHand_Portal/css/vuetify.css"/>
-	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"/>    
+	<link rel="stylesheet" href="/PxxySecondHand_Portal/components/admin/css/upload.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"/> 
+	<!-- import CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>   
 </head>
 <body>
 	<v-app id="MainFrame" :dark="dark">

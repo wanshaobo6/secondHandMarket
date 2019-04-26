@@ -1,3 +1,4 @@
+import upload from "../js/upload.js";
 const loginForm = {
     template:`
     	 <div id="adPane">
@@ -40,19 +41,8 @@ const loginForm = {
 		        <v-card-text>
 		          <v-container grid-list-md>
 		            <v-layout wrap>
-		              <v-flex xs12 sm6 md4>
-		                <v-text-field label="Legal first name*" required></v-text-field>
-		              </v-flex>
-		              <v-flex xs12 sm6 md4>
-		                <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
-		              </v-flex>
-		              <v-flex xs12 sm6 md4>
-		                <v-text-field
-		                  label="Legal last name*"
-		                  hint="example of persistent helper text"
-		                  persistent-hint
-		                  required
-		                ></v-text-field>
+		              <v-flex>
+		                <v-text-field label="广告名称" hint="该广告名称将展示在广告图片下" required></v-text-field>
 		              </v-flex>
 		              <v-flex xs12>
 		                <v-text-field label="Email*" required></v-text-field>
@@ -167,6 +157,9 @@ const loginForm = {
   
     },
     create:{
+    },
+    components:{
+     elUpload:upload,
     }
 }
 

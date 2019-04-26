@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pxxysecondhand.mapper.AdvertisementMapper" >
+  <resultMap id="BaseResultMap" type="com.pxxysecondhand.pojo.Advertisement" >
+    <id column="aid" property="aid" jdbcType="INTEGER" />
+    <result column="adOrder" property="adorder" jdbcType="INTEGER" />
+    <result column="adName" property="adname" jdbcType="VARCHAR" />
+    <result column="adDesc" property="addesc" jdbcType="VARCHAR" />
+    <result column="adImage" property="adimage" jdbcType="VARCHAR" />
+    <result column="adAddress" property="adaddress" jdbcType="VARCHAR" />
+    <result column="lastOperator" property="lastoperator" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    aid, adOrder, adName, adDesc, adImage, adAddress, lastOperator, created, updated
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pxxysecondhand.pojo.AdvertisementExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from advertisement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from advertisement
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from advertisement
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pxxysecondhand.pojo.AdvertisementExample" >
+    delete from advertisement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pxxysecondhand.pojo.Advertisement" >
+    insert into advertisement (aid, adOrder, adName, 
+      adDesc, adImage, adAddress, 
+      lastOperator, created, updated
+      )
+    values (#{aid,jdbcType=INTEGER}, #{adorder,jdbcType=INTEGER}, #{adname,jdbcType=VARCHAR}, 
+      #{addesc,jdbcType=VARCHAR}, #{adimage,jdbcType=VARCHAR}, #{adaddress,jdbcType=VARCHAR}, 
+      #{lastoperator,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pxxysecondhand.pojo.Advertisement" >
+    insert into advertisement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="adorder != null" >
+        adOrder,
+      </if>
+      <if test="adname != null" >
+        adName,
+      </if>
+      <if test="addesc != null" >
+        adDesc,
+      </if>
+      <if test="adimage != null" >
+        adImage,
+      </if>
+      <if test="adaddress != null" >
+        adAddress,
+      </if>
+      <if test="lastoperator != null" >
+        lastOperator,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="adorder != null" >
+        #{adorder,jdbcType=INTEGER},
+      </if>
+      <if test="adname != null" >
+        #{adname,jdbcType=VARCHAR},
+      </if>
+      <if test="addesc != null" >
+        #{addesc,jdbcType=VARCHAR},
+      </if>
+      <if test="adimage != null" >
+        #{adimage,jdbcType=VARCHAR},
+      </if>
+      <if test="adaddress != null" >
+        #{adaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lastoperator != null" >
+        #{lastoperator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pxxysecondhand.pojo.AdvertisementExample" resultType="java.lang.Integer" >
+    select count(*) from advertisement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update advertisement
+    <set >
+      <if test="record.aid != null" >
+        aid = #{record.aid,jdbcType=INTEGER},
+      </if>
+      <if test="record.adorder != null" >
+        adOrder = #{record.adorder,jdbcType=INTEGER},
+      </if>
+      <if test="record.adname != null" >
+        adName = #{record.adname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addesc != null" >
+        adDesc = #{record.addesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adimage != null" >
+        adImage = #{record.adimage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adaddress != null" >
+        adAddress = #{record.adaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastoperator != null" >
+        lastOperator = #{record.lastoperator,jdbcType=INTEGER},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null" >
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update advertisement
+    set aid = #{record.aid,jdbcType=INTEGER},
+      adOrder = #{record.adorder,jdbcType=INTEGER},
+      adName = #{record.adname,jdbcType=VARCHAR},
+      adDesc = #{record.addesc,jdbcType=VARCHAR},
+      adImage = #{record.adimage,jdbcType=VARCHAR},
+      adAddress = #{record.adaddress,jdbcType=VARCHAR},
+      lastOperator = #{record.lastoperator,jdbcType=INTEGER},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pxxysecondhand.pojo.Advertisement" >
+    update advertisement
+    <set >
+      <if test="adorder != null" >
+        adOrder = #{adorder,jdbcType=INTEGER},
+      </if>
+      <if test="adname != null" >
+        adName = #{adname,jdbcType=VARCHAR},
+      </if>
+      <if test="addesc != null" >
+        adDesc = #{addesc,jdbcType=VARCHAR},
+      </if>
+      <if test="adimage != null" >
+        adImage = #{adimage,jdbcType=VARCHAR},
+      </if>
+      <if test="adaddress != null" >
+        adAddress = #{adaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lastoperator != null" >
+        lastOperator = #{lastoperator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pxxysecondhand.pojo.Advertisement" >
+    update advertisement
+    set adOrder = #{adorder,jdbcType=INTEGER},
+      adName = #{adname,jdbcType=VARCHAR},
+      adDesc = #{addesc,jdbcType=VARCHAR},
+      adImage = #{adimage,jdbcType=VARCHAR},
+      adAddress = #{adaddress,jdbcType=VARCHAR},
+      lastOperator = #{lastoperator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP}
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+</mapper>

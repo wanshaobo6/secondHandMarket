@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pxxysecondhand.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="ssmczsc.pojo.Admin" >
+  <resultMap id="BaseResultMap" type="com.pxxysecondhand.pojo.Admin" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="adminname" property="adminname" jdbcType="VARCHAR" />
     <result column="adminpassword" property="adminpassword" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     id, adminname, adminpassword, image, roleId
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="ssmczsc.pojo.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pxxysecondhand.pojo.AdminExample" >
     select
     <if test="distinct" >
       distinct
@@ -93,19 +93,19 @@
     delete from admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="ssmczsc.pojo.AdminExample" >
+  <delete id="deleteByExample" parameterType="com.pxxysecondhand.pojo.AdminExample" >
     delete from admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="ssmczsc.pojo.Admin" >
+  <insert id="insert" parameterType="com.pxxysecondhand.pojo.Admin" >
     insert into admin (id, adminname, adminpassword, 
       image, roleId)
     values (#{id,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{adminpassword,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR}, #{roleid,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="ssmczsc.pojo.Admin" >
+  <insert id="insertSelective" parameterType="com.pxxysecondhand.pojo.Admin" >
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="ssmczsc.pojo.AdminExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.pxxysecondhand.pojo.AdminExample" resultType="java.lang.Integer" >
     select count(*) from admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="ssmczsc.pojo.Admin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pxxysecondhand.pojo.Admin" >
     update admin
     <set >
       <if test="adminname != null" >
@@ -200,7 +200,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="ssmczsc.pojo.Admin" >
+  <update id="updateByPrimaryKey" parameterType="com.pxxysecondhand.pojo.Admin" >
     update admin
     set adminname = #{adminname,jdbcType=VARCHAR},
       adminpassword = #{adminpassword,jdbcType=VARCHAR},

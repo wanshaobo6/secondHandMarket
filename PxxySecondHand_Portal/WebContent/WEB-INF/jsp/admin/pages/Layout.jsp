@@ -57,7 +57,7 @@
             </v-list-tile-content>
           </v-list-tile>
           <!-- 二级菜单 -->
-          <v-list-tile v-for="subItem in item.items" :key="subItem.title" :to="item.path + subItem.path">
+          <v-list-tile v-for="subItem in item.items" :key="subItem.title" :to="item.path + subItem.path" @click="changeBreadCrumb(item.title,subItem.title)">
             <v-list-tile-content>
               <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
             </v-list-tile-content>
@@ -113,11 +113,11 @@
 </body>
 <script  type="module">
   import menu from "../components/admin/js/menu.js";    //导入数据
-  import component1 from "../components/admin/mainContent/component1.js";    //导入数据
-   import component2 from "../components/admin/mainContent/component2.js";    //导入数据
+  import advertisement from "../components/admin/mainContent/advertisement.js";    //导入数据
+  import publicMessage from "../components/admin/mainContent/publicMessage.js";    //导入数据
 	const router = new VueRouter({
-		routes:[{path : "/index/dashboard" , component : component1 }
-				,{path : "/item/category" , component : component2 }
+		routes:[{path : "/other/advertisement" , component : advertisement }
+				,{path : "/other/publicMessage" , component : publicMessage }
 				]
 	})
 	
@@ -134,7 +134,10 @@
 			item2:"统计"
 		},
 		methods:{
-			
+			changeBreadCrumb(title,subtitle){
+				this.item1 = title;
+				this.item2 = subtitle;
+			}
 		},
 		computed:{
 			items(){
@@ -142,8 +145,8 @@
 			}
 		},
 		components:{
-	   		component1,
-			component2
+	   		advertisement,
+			publicMessage
 		},
 		router,
 	})

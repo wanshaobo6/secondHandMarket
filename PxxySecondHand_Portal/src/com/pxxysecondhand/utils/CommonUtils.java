@@ -1,15 +1,12 @@
 package com.pxxysecondhand.utils;
 
 import java.math.BigInteger;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
 import org.springframework.util.StringUtils;
 
 public class CommonUtils {
@@ -145,6 +142,20 @@ public class CommonUtils {
 		if(title.length()<=length) 
 			return title;
 		return title.substring(0,length-1)+"...";
+	}
+	
+	
+	public static String getAid() {
+		String dataString="0123456789";
+		StringBuffer buffer=new StringBuffer();
+		Random random=new Random();
+		for(int i=0;i<4;i++) {
+			int index=random.nextInt(10);
+			String msg = dataString.substring(index, index+1);
+			buffer.append(msg);
+			
+		}
+		return buffer.toString();
 	}
 	
 }

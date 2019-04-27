@@ -23,7 +23,7 @@ public class AdverismentController {
 	
 	@Autowired
 	private IAdvertisementService advertisementService;
-	
+	 
 	//查询广告
 	@RequestMapping("/query")
 	@ResponseBody
@@ -32,7 +32,7 @@ public class AdverismentController {
 		return adverisementList;
 	}
 	
-	//新增广告
+	//新增广告21
 	@RequestMapping("add")
 	@ResponseBody
 	public CommonResult addAdv(Advertisement advertisement,HttpServletRequest request){ 

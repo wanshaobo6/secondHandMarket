@@ -64,7 +64,7 @@ public class TimedUpadteScanRecordTask  implements Runnable{
 			}
 			if(ScanRecorder.isFetch()) {
 					//取数据
-				System.out.println("拉取用户浏览数据ing...");
+				//System.out.println("拉取用户浏览数据ing...");
 				String str = jedisClient.get(REDIS_SCAN_RECORD_NAME);
 				Map<String, Map<String, List<ScanRecord>>> newrecord = null;
 				if(!StringUtils.isEmpty(str)) {
@@ -78,7 +78,7 @@ public class TimedUpadteScanRecordTask  implements Runnable{
 				ScanRecorder.setFetch(false);
 			}else {
 				//存数据
-				System.out.println("更新用户浏览数据ing...");
+				//System.out.println("更新用户浏览数据ing...");
 				Map<String, Map<String, List<ScanRecord>>> record = ScanRecorder.getRecord();
 				jedisClient.set(REDIS_SCAN_RECORD_NAME, JsonUtils.objectToJson(record));
 			}

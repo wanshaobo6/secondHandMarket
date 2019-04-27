@@ -43,7 +43,7 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
 	@Override
 	public CommonResult addAdverisement(Advertisement advertisement) {
 		// TODO Auto-generated method stub
-		String aid = CommonUtils.getAid();
+		String aid = CommonUtils.uuidGenerator();
 		advertisement.setAid(Integer.parseInt(aid));
 		int i = this.advertisementMapper.insert(advertisement);
 		if(i!=1) {

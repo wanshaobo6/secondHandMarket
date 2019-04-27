@@ -30,6 +30,7 @@
 				<li class="navunselected"><a  id="a3" href="${pageContext.request.contextPath}/collection/getAllOfMyCollections.do" target="framecontent">我的收藏</a></li>
 				<li class="navunselected"><a  id="a4" href="${pageContext.request.contextPath}/rename.html" target="framecontent">修改密码</a></li>
 				<li class="navunselected"><a id="a6" href="javascript:void(0)" target="framecontent">我的资料</a></li>
+				<li class="navunselected"><a id="a7" href="${pageContext.request.contextPath}/item/showMyMessage.html" target="framecontent">我的留言</a></li>
 			</ul>
 		</div>
 		<!-- E=content_slidebar -->

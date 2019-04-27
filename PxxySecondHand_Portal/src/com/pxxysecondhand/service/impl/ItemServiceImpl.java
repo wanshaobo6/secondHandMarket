@@ -34,6 +34,7 @@ import com.pxxysecondhand.mapper.TradeMapper;
 import com.pxxysecondhand.mapper.UserMapper;
 import com.pxxysecondhand.pojo.CollectionExample;
 import com.pxxysecondhand.pojo.CollectionExample.Criteria;
+import com.pxxysecondhand.pojo.Comment;
 import com.pxxysecondhand.pojo.Item;
 import com.pxxysecondhand.pojo.ItemCat;
 import com.pxxysecondhand.pojo.ItemExample;
@@ -450,6 +451,12 @@ public class ItemServiceImpl implements IItemService {
 		// É¾³ýÆÀÂÛ
 		commentService.deleteCommentsByItemId(itemId);
 		return true;
+	}
+
+	@Override
+	public SearchResult<Comment> showMyMessage(User user, int page, int rows, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/*

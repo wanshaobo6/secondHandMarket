@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pxxysecondhand.pojo.Comment;
 import com.pxxysecondhand.pojo.Item;
 import com.pxxysecondhand.pojo.User;
 import com.pxxysecondhand.service.ICollectionService;
@@ -235,5 +236,23 @@ public class ItemController {
 			  return  CommonResult.build(500, "œµÕ≥π ’œ");
 		}
 	   return  CommonResult.ok();
+   }
+   
+   @RequestMapping("/showmyMessage")
+   @ResponseBody
+   public ModelAndView showMyMessage(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue="6")int rows,HttpServletRequest request,HttpServletResponse response) {
+	   User user = commentService.checkIsLogin(request);
+	   ModelAndView mv = new ModelAndView();
+	   if(user==null) {
+		   mv.setViewName("login");
+		   return mv;
+	   }
+	   SearchResult<Comment> result = itemService.showMyMessage(user, page, rows,request);
+	  /* for (MyPublic myPublic : result.getItemList()) {
+		   System.out.println(myPublic);
+	   }*/
+	   mv.setViewName("myMessage");
+	   mv.addObject("data", result);
+	   return mv;
    }
   }

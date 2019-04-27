@@ -14,6 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pxxysecondhand.pojo.Comment;
 import com.pxxysecondhand.pojo.Item;
 import com.pxxysecondhand.pojo.ItemCat;
 import com.pxxysecondhand.pojo.User;
@@ -65,4 +66,8 @@ public interface IItemService {
 	
 	//创建GuessToken 同时如果返回登录返回Id,未登录返回GuessToken
 	public String createGuessTokenIfNotExist(HttpServletRequest request , HttpServletResponse response );
+	
+	//我的留言
+	public SearchResult<Comment> showMyMessage(User user, int page, int rows, HttpServletRequest request);
+
 }

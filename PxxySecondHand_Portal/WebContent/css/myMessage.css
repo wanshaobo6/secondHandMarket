@@ -1,0 +1,73 @@
+@charset "UTF-8";
+#message{
+			width: 700px;
+			height: 160px;
+			border:2px solid#CCCCCC;
+		
+		}	
+		#touxiang img{
+			width: 60px;
+			height: 60px;
+			padding: 5px 10px 0px 10px;
+			float: left;
+			border-radius:70%;
+			overflow:hidden;
+		}
+		.headerMiddle{
+		float:left;
+		}
+		#xingming{
+			width:200px;
+			height: 20px;
+			font-size: 12px;
+			padding: 10px 5px 0px 0px;
+			font-family:Monospace;
+			font-weight:700;
+			
+		}
+		#time{
+			width:200px;
+			height: 30px;
+			font-size: 12px;
+			font-family: arial;
+			padding: 5px 5px 0px 0px;
+			
+		}
+		#mes{
+			
+			width:360px;
+			height: 50px;
+			font-size: 12px;
+			padding: 10px 20px 5px 20px;
+			float: left;
+			}
+			
+			#sangping{
+				width: 700px;
+			 height: 95px;
+		
+			}
+			.tom1{
+				
+				width:80px;
+				height:80px;
+				padding:10px 5px 5px 5px;
+				float: left;
+			}
+			
+		#guanjianci{
+				width: 580px;
+				height: 50px;
+				padding: 0px 5px 0px 10px;
+				font-size:13px;
+				float: left;
+				
+			
+		}
+		#jiage{
+			width: 580px;
+				height:30px;
+				padding: 5px 5px 5px 10px;
+				font-size:12px;
+				float: left;
+				}

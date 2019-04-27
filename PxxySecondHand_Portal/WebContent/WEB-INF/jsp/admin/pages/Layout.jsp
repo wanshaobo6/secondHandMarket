@@ -11,9 +11,9 @@
 	<link rel="stylesheet" href="/PxxySecondHand_Portal/css/vuetify.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"/> 
 	<!-- import CSS -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="/PxxySecondHand_Portal/js/element-ui@2.8.2/theme-chalk/index.css">
 	<!-- import JavaScript -->
-	<script src="https://unpkg.com/element-ui/lib/index.js"></script>  
+	<script src="/PxxySecondHand_Portal/js/element-ui@2.8.2/index.js"></script>  
 	<link rel="stylesheet" href="/PxxySecondHand_Portal/components/admin/css/upload.css"/> 
 </head>
 <body>

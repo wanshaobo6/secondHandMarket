@@ -67,7 +67,7 @@ public class CommentController {
    */
   @RequestMapping(value="/publicMyComment",method=RequestMethod.GET)
   @ResponseBody
-  public CommonResult publicMyComment(HttpServletRequest request,@RequestParam(required=true)String itemId ,@RequestParam(defaultValue="0") String parentId ,@RequestParam(required=true)String Content) {
+  public CommonResult publicMyComment(HttpServletRequest request,@RequestParam(required=true)String itemId ,@RequestParam(defaultValue="0") String parentId ,@RequestParam(required=true)String Content ) {
 	  //1.查看用户是否登录
 	  User user = commentService.checkIsLogin(request);
 	  if(user==null)

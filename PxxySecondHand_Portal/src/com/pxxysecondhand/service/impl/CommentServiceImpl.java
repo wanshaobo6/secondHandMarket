@@ -119,9 +119,9 @@ public class CommentServiceImpl implements ICommentService {
 		comment.setItemid(itemId);
 		comment.setParentid(parentId);
 		//查询对谁评论方
-		User toUser = userMapper.selectItemOwner(itemId);
-		comment.setTouserid(toUser.getId());
-		comment.setTousername(toUser.getUsername());
+		Comment toComment = commentMapper.selectByPrimaryKey(parentId);
+		comment.setTouserid(toComment.getFromuserid());
+		comment.setTousername(toComment.getFromusername());
 		//插入记录
 		commentMapper.insert(comment);
 		return CommonResult.ok(comment);

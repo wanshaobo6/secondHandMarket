@@ -24,54 +24,71 @@ const loginForm = {
 				<td class="text-xs-center">{{ props.item.adImage }}</td>
 				<td class="text-xs-center">{{ props.item.adAddress }}</td>
 				<td class="text-xs-center">
-					上移 ， 下移
+				 <v-layout>
+				 	<v-flex xs3 sm3>
+		            <v-btn flat icon small color="primary">
+		              <v-icon>expand_more</v-icon>
+		            </v-btn>
+		          </v-flex>
+		           <v-flex xs3 sm3>
+		            <v-btn flat icon small color="primary">
+		              <v-icon>expand_less</v-icon>
+		            </v-btn>
+		          </v-flex>
+		           <v-flex xs3 sm3>
+		            <v-btn flat icon small color="primary">
+		              <v-icon>update</v-icon>
+		            </v-btn>
+		          </v-flex>
+		           <v-flex xs3 sm3>
+		            <v-btn flat icon small color="primary">
+		              <v-icon>delete_forever</v-icon>
+		            </v-btn>
+		          </v-flex>
+				 </v-layout>
 				</td>
 			  </template>
 			</v-data-table>
 		  </div>
 		  <v-layout row justify-center>
 		    <v-dialog v-model="dialog" persistent max-width="600px">
-		      <template v-slot:activator="{ on }">
-		        <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
-		      </template>
 		      <v-card>
 		        <v-card-title>
-		          <span class="headline">User Profile</span>
+		          <span class="headline">新增广告</span>
 		        </v-card-title>
 		        <v-card-text>
 		          <v-container grid-list-md>
 		            <v-layout wrap>
-		              <v-flex>
-		                <v-text-field label="广告名称" hint="该广告名称将展示在广告图片下" required></v-text-field>
-		              </v-flex>
 		              <v-flex xs12>
-		                <v-text-field label="Email*" required></v-text-field>
+		                <v-text-field label="*广告名称" hint="该广告名称将展示在广告图片下" required></v-text-field>
 		              </v-flex>
-		              <v-flex xs12>
-		                <v-text-field label="Password*" type="password" required></v-text-field>
-		              </v-flex>
-		              <v-flex xs12 sm6>
-		                <v-select
-		                  :items="['0-17', '18-29', '30-54', '54+']"
-		                  label="Age*"
-		                  required
-		                ></v-select>
-		              </v-flex>
-		              <v-flex xs12 sm6>
-		                <v-autocomplete
-		                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-		                  label="Interests"
-		                  multiple
-		                ></v-autocomplete>
-		              </v-flex>
+		                 <v-flex xs12>
+					        <v-textarea
+					          solo
+					          name="input-7-4"
+					          label="广告描述"
+					          value=""
+					        ></v-textarea>
+					      </v-flex>
+	             		 <v-flex xs12>
+			                <v-text-field label="*广告的url" hint="点击图片跳转到该url上" required></v-text-field>
+			              </v-flex>
+				           <v-layout>
+				             <v-flex xs3>
+				             	<v-chip label> *图片上传:</v-chip>
+				             </v-flex> 
+				             <v-flex xs9>
+				             	<el-upload></el-upload>
+				             </v-flex> 
+		             	</v-layout>
 		            </v-layout>
 		          </v-container>
-		          <small>*indicates required field</small>
+		          <small>*表示必填选项</small>
 		        </v-card-text>
 		        <v-card-actions>
 		          <v-spacer></v-spacer>
-		          <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
-		          <v-btn color="blue darken-1" flat @click="dialog = false">Save</v-btn>
+		          <v-btn color="blue darken-1" flat @click="dialog = false">关闭窗口</v-btn>
+		          <v-btn color="blue darken-1" flat @click="dialog = false">新增</v-btn>
 		        </v-card-actions>
 		      </v-card>
 		    </v-dialog>

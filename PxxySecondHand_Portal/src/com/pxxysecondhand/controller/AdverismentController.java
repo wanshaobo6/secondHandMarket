@@ -24,7 +24,7 @@ public class AdverismentController {
 	@Autowired
 	private IAdvertisementService advertisementService;
 	 
-	//查询广告
+	//查询广告123
 	@RequestMapping("/query")
 	@ResponseBody
 	public List<Advertisement> queryAdvAll(){ 

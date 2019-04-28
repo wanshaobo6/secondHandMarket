@@ -12,6 +12,7 @@ package com.pxxysecondhand.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pxxysecondhand.pojo.User;
 import com.pxxysecondhand.service.ICommentService;
 import com.pxxysecondhand.tempPojo.ItemDescComment;
+import com.pxxysecondhand.tempPojo.Mymessage;
+import com.pxxysecondhand.tempPojo.SearchResult;
 import com.pxxysecondhand.utils.CommonResult;
 
 /**
@@ -100,5 +104,23 @@ public class CommentController {
 	  //É¾³ýÆÀÂÛ
 	   CommonResult result = commentService.deleteMyComment(user, commentId);
 	  return result;
+  }
+  
+  @RequestMapping(value="/showMyMessage")
+  @ResponseBody   
+  public ModelAndView showMyMessage(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue="5")int rows,HttpServletRequest request,HttpServletResponse response) {
+	   User user = commentService.checkIsLogin(request);
+	   ModelAndView mv = new ModelAndView();
+	   if(user==null) {
+		   mv.setViewName("login");
+		   return mv;
+	   }
+	   SearchResult<Mymessage> result = commentService.showMyMessage(user, page, rows,request);
+	  /* for (MyPublic myPublic : result.getItemList()) {
+		   System.out.println(myP  ublic);
+	   }*/
+	   mv.setViewName("myMessage");
+	   mv.addObject("data", result);
+	   return mv;
   }
 }

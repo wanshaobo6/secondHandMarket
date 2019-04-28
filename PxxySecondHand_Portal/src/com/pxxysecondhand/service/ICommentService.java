@@ -13,8 +13,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.pxxysecondhand.pojo.Comment;
 import com.pxxysecondhand.pojo.User;
 import com.pxxysecondhand.tempPojo.ItemDescComment;
+import com.pxxysecondhand.tempPojo.Mymessage;
+import com.pxxysecondhand.tempPojo.SearchResult;
 import com.pxxysecondhand.utils.CommonResult;
 
 /**
@@ -39,4 +42,7 @@ public interface ICommentService {
 	public int countCommentNotReadByItemId(String itemId);
 
 	public void deleteCommentsByItemId(String itemId);
+	
+	//Œ“µƒ¡Ù—‘
+	public SearchResult<Mymessage> showMyMessage(User user, int page, int rows, HttpServletRequest request);
 }

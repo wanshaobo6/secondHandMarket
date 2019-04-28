@@ -238,21 +238,4 @@ public class ItemController {
 	   return  CommonResult.ok();
    }
    
-   @RequestMapping("/showmyMessage")
-   @ResponseBody
-   public ModelAndView showMyMessage(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue="6")int rows,HttpServletRequest request,HttpServletResponse response) {
-	   User user = commentService.checkIsLogin(request);
-	   ModelAndView mv = new ModelAndView();
-	   if(user==null) {
-		   mv.setViewName("login");
-		   return mv;
-	   }
-	   SearchResult<Comment> result = itemService.showMyMessage(user, page, rows,request);
-	  /* for (MyPublic myPublic : result.getItemList()) {
-		   System.out.println(myPublic);
-	   }*/
-	   mv.setViewName("myMessage");
-	   mv.addObject("data", result);
-	   return mv;
-   }
   }

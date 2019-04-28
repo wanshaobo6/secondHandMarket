@@ -67,7 +67,6 @@ public interface IItemService {
 	//创建GuessToken 同时如果返回登录返回Id,未登录返回GuessToken
 	public String createGuessTokenIfNotExist(HttpServletRequest request , HttpServletResponse response );
 	
-	//我的留言
-	public SearchResult<Comment> showMyMessage(User user, int page, int rows, HttpServletRequest request);
+
 
 }

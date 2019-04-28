@@ -46,7 +46,7 @@
 					<td class="tradedetail_cell">
 						<div class="tradedetail_cell_left">
 							<a class="tradeitem_pic">
-								<img alt="闲置图片" src="${item.itemimage}">
+							 <img alt="闲置图片" src="${item.itemimage}"> 
 							</a>
 						</div>
 						<div class="tradedetail_cell_right">

@@ -9,6 +9,7 @@
 */
 package com.pxxysecondhand.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,21 +20,28 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.pxxysecondhand.component.JedisClient;
 import com.pxxysecondhand.mapper.CommentMapper;
 import com.pxxysecondhand.mapper.ItemMapper;
 import com.pxxysecondhand.mapper.UserMapper;
 import com.pxxysecondhand.pojo.Comment;
 import com.pxxysecondhand.pojo.CommentExample;
+import com.pxxysecondhand.pojo.Item;
 import com.pxxysecondhand.pojo.User;
 import com.pxxysecondhand.pojo.UserExample;
 import com.pxxysecondhand.pojo.UserExample.Criteria;
 import com.pxxysecondhand.service.ICommentService;
 import com.pxxysecondhand.tempPojo.ItemDescComment;
+import com.pxxysecondhand.tempPojo.MyPublic;
+import com.pxxysecondhand.tempPojo.Mymessage;
+import com.pxxysecondhand.tempPojo.SearchResult;
 import com.pxxysecondhand.utils.CommonResult;
 import com.pxxysecondhand.utils.CommonUtils;
 import com.pxxysecondhand.utils.CookieUtils;
 import com.pxxysecondhand.utils.JsonUtils;
+import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
 
 /**
  * @author  
@@ -49,6 +57,10 @@ public class CommentServiceImpl implements ICommentService {
 	
 	@Autowired
 	private JedisClient jedisClient;
+	
+	
+	@Autowired
+	private ItemMapper itemMapper;
 	
 	//#登录成功后存储用户个人资料前缀
 	@Value("${USER_ONLINE_TOKEN_PREFIX}")
@@ -121,6 +133,7 @@ public class CommentServiceImpl implements ICommentService {
 		//查询对谁评论方
 		User toUser = userMapper.selectItemOwner(itemId);
 		comment.setTouserid(toUser.getId());
+		System.out.println(toUser.getId());//d1f7c69198504e60bc9ffad9e09c8bd2
 		comment.setTousername(toUser.getUsername());
 		//插入记录
 		commentMapper.insert(comment);
@@ -211,6 +224,42 @@ public class CommentServiceImpl implements ICommentService {
 		com.pxxysecondhand.pojo.CommentExample.Criteria criteria = example.createCriteria();
 		criteria.andItemidEqualTo(itemId);
 		commentMapper.deleteByExample(example);
+	}
+	@Override
+	public SearchResult<Mymessage> showMyMessage(User user, int page, int rows, HttpServletRequest request) {
+		/**
+		 * 根據用戶查詢对自己的所有留言
+		 */
+		PageHelper.startPage(page, rows);
+		CommentExample example=new CommentExample();
+		example.setOrderByClause("'createTime' DESC");
+		com.pxxysecondhand.pojo.CommentExample.Criteria createCriteria = example.createCriteria();
+		createCriteria.andTouseridEqualTo(user.getId());
+		List<Comment> list = this.commentMapper.selectByExample(example);
+		List<Mymessage> mymessages=new ArrayList<>();
+		list.stream().forEach(e->{
+				Item item = itemMapper.selectByPrimaryKey(e.getItemid());
+				Mymessage mymessage=new Mymessage();
+				mymessage.setFromUsername(e.getFromusername());
+				mymessage.setItemName(item.getItemtitle());
+				mymessage.setMessage(e.getContent());
+				String time = CommonUtils.getTimeIntervalInImpreciseWay(e.getCreatetime());
+				mymessage.setMessageDate(time);
+				mymessage.setCurrentPrice(item.getCurrprice());
+				mymessage.setImage(CommonUtils.getLargeImage(item.getItemimages()));   
+				mymessages.add(mymessage);
+		});
+		//分页的数据
+		SearchResult<Mymessage> result = new SearchResult();
+		result.setItemList(mymessages);
+		result.setCurrentPage(page);
+		PageInfo<Comment> pageInfo = new PageInfo(list);
+		int i = (int) pageInfo.getTotal();
+		result.setTotalCount(i);
+		int totalPage = i % rows == 0 ? i / rows : (i / rows + 1);
+		result.setTotalPage(totalPage);
+		result.setURL(CommonUtils.getURLByServletRequest(request));
+		return result;
 	}
 
 }

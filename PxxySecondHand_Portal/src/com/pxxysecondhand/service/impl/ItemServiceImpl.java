@@ -453,11 +453,6 @@ public class ItemServiceImpl implements IItemService {
 		return true;
 	}
 
-	@Override
-	public SearchResult<Comment> showMyMessage(User user, int page, int rows, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/*
 	 * if(item.getIsintrade()==1) { //交易中则填充其剩余信息 Trade trade =

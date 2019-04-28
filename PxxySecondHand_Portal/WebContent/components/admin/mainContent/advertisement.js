@@ -113,7 +113,7 @@ const loginForm = {
 		  { text: '广告描述' , value: 'adDesc',align: 'center'},
           { text: '广告图片', value: 'adImage' ,align: 'center'},
           { text: '广告地址', value: 'adAddress',align: 'center'},
-		    { text: '操作', value: 'adoperation',align: 'center'}
+		  { text: '操作', value: 'adoperation',align: 'center'}
         ],
         addresses: [
           {
@@ -173,7 +173,7 @@ const loginForm = {
     methods: {
   
     },
-    create:{
+    create:{ 
     },
     components:{
      elUpload:upload,

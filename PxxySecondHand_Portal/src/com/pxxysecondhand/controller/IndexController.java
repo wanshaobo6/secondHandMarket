@@ -59,7 +59,7 @@ public class IndexController {
 			 result =  messageService.getWebMessageAutomatically(null, 1, 6);
 		 else
 			 result =  messageService.getWebMessageAutomatically(user.getId(), 1, 6);
-		 //获取用户的推荐
+			System.out.println("E=获得最新的消息"+System.currentTimeMillis());
 		 List<GuessItem> guessList = searchService.searchByUserHabit(request, response);
 		 mv.addObject("guessList",guessList);
 		 mv.addObject("messageList", JsonUtils.jsonToList(JsonUtils.objectToJson(result.getItemList()), WebDynamicMessage.class));

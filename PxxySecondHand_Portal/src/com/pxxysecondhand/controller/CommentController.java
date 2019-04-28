@@ -121,6 +121,6 @@ public class CommentController {
 	   }*/
 	   mv.setViewName("myMessage");
 	   mv.addObject("data", result);
-	   return mv;
-  }
+	   return mv;  
+}
 }

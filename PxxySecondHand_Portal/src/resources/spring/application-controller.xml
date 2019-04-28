@@ -37,7 +37,7 @@
   		<!-- <mvc:mapping path="/item/polishItem.*"/>
   		<mvc:mapping path="/item/changeupanddown.*"/>
   		<mvc:mapping path="/item/deleteItem.*"/> -->
-  		<bean class="com.pxxysecondhand.interceptor.TradeInterceptor"></bean>
+  		<bean  class="com.pxxysecondhand.interceptor.TradeInterceptor"></bean>
   	</mvc:interceptor>
   </mvc:interceptors>
   

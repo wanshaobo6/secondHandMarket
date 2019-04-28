@@ -274,6 +274,10 @@
   </update>
   
   <select id="selectItemOwner" resultType="com.pxxysecondhand.pojo.User">
+<<<<<<< HEAD
   	SELECT  u.*  FROM item i,`user` u WHERE i.`userId`=u.`id` AND i.`id`=#{itemId}
+=======
+  	SELECT u.id , u.`username` FROM item i,`user` u WHERE i.`userId`=u.`id` AND i.`id`=#{itemId}
+>>>>>>> branch 'master' of https://github.com/wanshaobo6/secondHandMarket.git
   </select>
 </mapper>

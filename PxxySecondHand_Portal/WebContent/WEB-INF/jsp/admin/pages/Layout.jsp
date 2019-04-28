@@ -15,6 +15,8 @@
 	<!-- import JavaScript -->
 	<script src="/PxxySecondHand_Portal/js/element-ui@2.8.2/index.js"></script>  
 	<link rel="stylesheet" href="/PxxySecondHand_Portal/components/admin/css/upload.css"/> 
+       <link href="/PxxySecondHand_Portal/components/admin/js/plugins/quilEditor//quill.snow.css" rel="stylesheet">
+       <script src="/PxxySecondHand_Portal/components/admin/js/plugins/quilEditor/quill.js"></script>
 </head>
 <body>
 	<v-app id="MainFrame" :dark="dark">
@@ -151,7 +153,7 @@
 		},
 		components:{
 	   		advertisement,
-			publicMessage
+			publicMessage,
 		},
 		router,
 	})

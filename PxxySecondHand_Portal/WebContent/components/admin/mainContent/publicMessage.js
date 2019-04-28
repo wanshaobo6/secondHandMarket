@@ -1,3 +1,4 @@
+import quilleditor from "../js/quilleditor.js"
 const loginForm = {
     template:`
     <v-tabs
@@ -83,7 +84,19 @@ const loginForm = {
 		    >
 		      <v-card flat>
 			        <v-card-text>
-    					{{text}}
+			        	  <v-layout>
+			        	  	<v-spacer></v-spacer>
+			        	  	<v-flex xs6 sm6>
+					          <v-text-field
+					            :label="noticeTitle"
+					            single-line
+					            solo
+					            :readonly="!isEditor"
+					          ></v-text-field>
+					        </v-flex>
+					        <v-spacer></v-spacer>
+			        	  </v-layout>
+    					<quilleditor xs12 sm12></quilleditor>
     				</v-card-text>
 		      </v-card>
 		    </v-tab-item>
@@ -91,6 +104,8 @@ const loginForm = {
     `,
     data(){
     	return{
+        		noticeTitle:"标题",
+        		isEditor:true,    //当前是否是编辑模式
     			text: `Lorem ipsum dolor sit amet, consectetur adipis
     				cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
     				aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco lab
@@ -298,6 +313,7 @@ const loginForm = {
         }
       },
       components:{
+    	  quilleditor,
       }
 }
 export default loginForm ;

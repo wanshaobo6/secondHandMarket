@@ -41,7 +41,6 @@ import com.pxxysecondhand.utils.CommonResult;
 import com.pxxysecondhand.utils.CommonUtils;
 import com.pxxysecondhand.utils.CookieUtils;
 import com.pxxysecondhand.utils.JsonUtils;
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
 
 /**
  * @author  

@@ -70,6 +70,7 @@
 						this.dialog = true;
 						return;
 					}
+					window.location.href="/PxxySecondHand_Portal/admin/Layout.html";
 				}
 			}
 		})

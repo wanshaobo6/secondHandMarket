@@ -90,7 +90,7 @@
 	        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"/>
 	      </v-btn>
 	      <!-- 切换黑暗主题 -->
-	      <v-flex xs1>
+	      <v-flex xs4>
 	        <v-switch
 	          :label="dark ? '暗黑' : '明亮'"
 	          v-model="dark"
@@ -99,9 +99,13 @@
 	        />
 	      </v-flex>
 	       <!-- 顶部导航标题 -->
-	      <v-flex xs3></v-flex>
-	      <v-toolbar-title v-text="title"/>
-	      <v-spacer/>
+	      <v-flex xs7>
+	      		 <v-toolbar-title v-text="title">
+	      		 </v-toolbar-title>
+	      </v-flex>
+	       <v-flex xs1>
+	      		  <v-chip outline color="whilte"  text-color="white">安全退出</v-chip>
+	      </v-flex>
 	    </v-toolbar>
 	      <!--中间内容主体-->
 	    <v-content>
@@ -120,11 +124,13 @@
 </body>
 <script  type="module">
   import menu from "../components/admin/js/menu.js";    //导入数据
-  import advertisement from "../components/admin/mainContent/advertisement.js";    //导入数据
-  import publicMessage from "../components/admin/mainContent/publicMessage.js";    //导入数据
+  import advertisement from "../components/admin/mainContent/advertisement.js";    //导入广告管理主界面
+  import publicMessage from "../components/admin/mainContent/publicMessage.js";    //导入发布公告主界面
+  import categoryManage from "../components/admin/mainContent/categoryManage.js";    //导入分类管理主界面
 	const router = new VueRouter({
 		routes:[{path : "/other/advertisement" , component : advertisement }
-				,{path : "/other/publicMessage" , component : publicMessage }
+				,{path : "/other/publicMessage" , component : publicMessage },
+				{path : "/item/categoryManage" , component : categoryManage }
 				]
 	})
 	
@@ -138,7 +144,8 @@
      		drawerRight: false,
 			title:"跳蚤市场后台管理系统",
 			item1:"首页",
-			item2:"统计"
+			item2:"统计",
+			chip2:true,   //是否显示退出按钮
 		},
 		methods:{
 			changeBreadCrumb(title,subtitle){
